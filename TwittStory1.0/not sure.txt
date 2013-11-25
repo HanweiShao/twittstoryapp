@@ -1,0 +1,34 @@
+
+css style to make panel wider
+    <style>
+
+            /* Adjust the width of the left reveal menu.
+            Copy all CSS from jquery.mobile.panel.css and delete the properties other than width, left, right and transform.
+            Then delete the selectors/rules for display modes (reveal/push/overlay) and the position (left/right) that you don't use.
+            If you don't use fixed toolbars on your page you can delete those selectors as well.
+            Narrow the scope of the selectors to prevent other panels being affected by the overrides. */
+            #demo-page #left-panel.ui-panel,
+            #demo-page #right-panel.ui-panel
+            {
+                width: 30em;
+            }
+            #demo-page #left-panel.ui-panel-closed {
+                width: 0;
+            }
+            #demo-page .ui-panel-position-left.ui-panel-display-reveal {
+                left: 0;
+            }
+            #demo-page .ui-panel-content-wrap-position-left.ui-panel-content-wrap-open,
+            .ui-panel-dismiss-position-left.ui-panel-dismiss-open {
+                /*left: 15em;*/
+                left: 30em;
+                right: -30em;
+            }
+            #demo-page .ui-panel-animate.ui-panel-content-wrap-position-left.ui-panel-content-wrap-open.ui-panel-content-wrap-display-reveal {
+                left: 0;
+                right: 0;
+                -webkit-transform: translate3d(30em,0,0);
+                -moz-transform: translate3d(30em,0,0);
+                transform: translate3d(30em,0,0);
+            }
+        </style>
