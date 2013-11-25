@@ -37,7 +37,7 @@ function onDeviceReady() {
 		changeLabels(language);
 	}
 }
-alert(language);
+//alert(language);
 
 			
 		function changeLabels(language){
