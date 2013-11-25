@@ -15,8 +15,9 @@
         <script src="js/jquery.js"></script>
         <script src="js/jquery.mobile-1.3.2.js"></script>       
         <script src="js/index.js"></script>       
-		<script src="js/result.js"></script>
-        <script src="js/json.js"></script>
+	<!--<script src="js/result.js"></script>-->
+        <script type="text/javascript" src="js/string.js"></script>
+        <script type="text/javascript" src="js/json.js"></script>
         <script type="text/javascript" src="js/d3.js"></script>
     	<script type="text/javascript" src="js/d3.layout.cloud.js"></script>
         <script type="text/javascript" src="js/WordcloudPanel.js"></script>
@@ -27,580 +28,479 @@
 		<script type="text/javascript" src="js/nlt.js"></script>
     </head>
     <body>
-    	<div data-role="page" id="cloudpage">
-    		<div data-role="popup" data-theme="b" id="popupBasic">
-                <form>
-                    <dl>          
-                        <dt lang="en">Search: </dt>
-                        <dd>
-                            <input type="search"  data-clear-btn="true" data-mini="true" />
-                        </dd>
 
-                        <dt lang="en">Language:</dt>
-                        <dd>
-                            <select data-mini="true" data-inline="true">
-                                <option lang="en">English</option>
-                                <option lang="en">Spanish</option>
-                            </select>
-                        </dd>
-                    </dl>
+        <!--cloud page-->
+        <div data-role="page" id="cloudpage">
 
-                    <label>
-                        <input data-mini="true" type="checkbox" name="checkbox-0 " lang="en">Include retweets
-                    </label>
-                    <button type="submit" data-mini="true" data-theme="b" lang="en">Search</button>
-                </form>
-            </div><!-- search area -->
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
-				<a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+            <!-- header -->
+            <div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
+                <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
                 <h1>
                     <a href="#popupBasic" data-rel="popup" data-role="button"  data-transition="slidedown" lang="en">Search</a>
                 </h1>
                 <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
-            </div><!-- /header -->
-            
+            </div>
+            <!-- /header -->
+
             <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
                 <p>Left reveal panel.</p>
-		
-				<div id="options">
-            		<span id="cloud1" lang="en"><p>Cloud</p></span>
-            		<span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
-            		<span id="links1" lang="en"><p>Links</p></span>
-            		<span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
-            		<span id="tweets1" lang="en"><p>Tweets</p></span>
-            	</div>
-				
+
+                <div id="options">
+                    <span id="cloud1" lang="en"><p>Cloud</p></span>
+                    <span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
+                    <span id="links1" lang="en"><p>Links</p></span>
+                    <span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
+                    <span id="tweets1" lang="en"><p>Tweets</p></span>
+                </div>
+
             </div>
 
             <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
-            <div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
+                <div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
 
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Account</h3>
-	     <div >
-            	
-		
-      
-            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
-            <label for="radio-choice-1">Hanwei</label>
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Account</h3>
+                        <div >
 
-            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
-            <label for="radio-choice-2">Rachel</label>
 
-            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
-            <label for="radio-choice-3">Sean</label>
 
-            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
-            <label for="radio-choice-4">Rui</label>
-     
-		</div>
-	</div>
-	
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Language</h3>
-	  
+                            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
+                            <label for="radio-choice-1">Hanwei</label>
 
-  <p>
-     	<select class="ui-lang" >
-								<option value="en" selected="">English</option>
+                            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
+                            <label for="radio-choice-2">Rachel</label>
 
-								<option value="es">Español</option>
-								<option value="cn">中文</option>
+                            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
+                            <label for="radio-choice-3">Sean</label>
 
-							</select>
-	</p>
-	</div>
-				
-	
-	
-</div>
+                            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
+                            <label for="radio-choice-4">Rui</label>
+
+                        </div>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Language</h3>
+
+
+                        <p>
+                            <select class="ui-lang" >
+                                <option value="en" selected="">English</option>
+
+                                <option value="es">Español</option>
+                                <option value="cn">中文</option>
+
+                            </select>
+                        </p>
+                    </div>
+
+
+
+                </div>
 
             </div><!-- /right panel -->
-   
-  			<div data-role="content" id="cloudDiv" style="font-family: impact">
-  				
-				<div class="bullets">
-					<ul>
-        				<li id="li_cloud" class="activated"></li>
-        				<li id="li_links"></li>
-        				<li id="li_img"></li>
-        				<li id="li_uses"></li>
-        				<li id="li_tweets"></li>
-        			</ul>
-				</div>
-				<clouddiv></clouddiv>
-			</div>
-		</div>
+
+            <div data-role="content" id="cloudDiv" style="font-family: impact">
+
+                <div class="bullets">
+                    <ul>
+                        <li id="li_cloud" class="activated"></li>
+                        <li id="li_links"></li>
+                        <li id="li_img"></li>
+                        <li id="li_uses"></li>
+                        <li id="li_tweets"></li>
+                    </ul>
+                </div>
+                <clouddiv></clouddiv>
+            </div>
+        </div>
+
+
+        <!--Next Page-->
+        <div data-role="page" id="linkspage">
 
 
 
-<!--Next Page-->
-<div data-role="page" id="linkspage">
-			
-            <div data-role="popup" data-theme="b" id="popupBasic">
-                <form>
-                    <dl>          
-                        <dt lang="en">Search: </dt>
-                        <dd>
-                            <input type="search"  data-clear-btn="true" data-mini="true" />
-                        </dd>
+            <div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
 
-                        <dt lang="en">Language: </dt>
-                        <dd>
-                            <select data-mini="true" data-inline="true">
-                                <option lang="en">English</option>
-                                <option lang="en">Spanish</option>
-                            </select>
-                        </dd>
-                    </dl>
-
-                    <label>
-                        <input data-mini="true" type="checkbox" name="checkbox-0 " lang="en">Include retweets
-                    </label>
-                    <button type="submit" data-mini="true" data-theme="b" lang="en">Search</button>
-                </form>
-            </div><!-- search area -->
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
-
-<a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+                <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
                 <h1>
                     <a href="#popupBasic" data-rel="popup" data-role="button"  data-transition="slidedown" lang="en">Search</a>
                 </h1>
-            <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+                <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
 
+
+            </div><!-- /header -->
+
+            <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
+                <p>Left reveal panel.</p>
+
+                <div id="options">
+                    <span id="cloud1" lang="en"><p>Cloud</p></span>
+                    <span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
+                    <span id="links1" lang="en"><p>Links</p></span>
+                    <span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
+                    <span id="tweets1" lang="en"><p>Tweets</p></span>
+                </div>
+            </div>
+
+
+            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
+
+
+                <div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Account</h3>
+                        <div >
+                            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
+                            <label for="radio-choice-1">Hanwei</label>
+
+                            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
+                            <label for="radio-choice-2">Rachel</label>
+
+                            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
+                            <label for="radio-choice-3">Sean</label>
+
+                            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
+                            <label for="radio-choice-4">Rui</label>
+
+                        </div>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Language</h3>
+
+
+                        <p>
+                            <select class="ui-lang" >
+                                <option value="en" selected="">English</option>
+
+                                <option value="es">Español</option>
+                                <option value="cn">中文</option>
+
+                            </select>
+                        </p>
+                    </div>
+
+
+
+                </div>
+
+            </div><!-- /right panel -->
+
+            <div data-role="content" id="linksDiv">
+                <div class="bullets">
+                    <ul>
+                        <li id="li_cloud"></li>
+                        <li id="li_links" class="activated"></li>
+                        <li id="li_img"></li>
+                        <li id="li_uses"></li>
+                        <li id="li_tweets"></li>
+                    </ul>
+                </div>
+            </div>			
+        </div>
+
+
+        <!--Next Page-->				
+        <div data-role="page" id="imagepage">
+
+
+            <div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
+
+
+                <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+                <h1>
+                    <a href="#popupBasic" data-rel="popup" data-role="button"  data-transition="slidedown" lang="en">Search</a>
+                </h1>
+                <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
 
 
 
             </div><!-- /header -->
-			     
-                   <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
+
+            <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
                 <p>Left reveal panel.</p>
-		
-				<div id="options">
-            		<span id="cloud1" lang="en"><p>Cloud</p></span>
-            		<span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
-            		<span id="links1" lang="en"><p>Links</p></span>
-            		<span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
-            		<span id="tweets1" lang="en"><p>Tweets</p></span>
-            	</div>
-			
-			
-						
-		</div>
-               
 
-            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
-           
-
-				<div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
-
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Account</h3>
-	     <div >
-            	
-		
-      
-            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
-            <label for="radio-choice-1">Hanwei</label>
-
-            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
-            <label for="radio-choice-2">Rachel</label>
-
-            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
-            <label for="radio-choice-3">Sean</label>
-
-            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
-            <label for="radio-choice-4">Rui</label>
-     
-		</div>
-	</div>
-	
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Language</h3>
-	  
-
-  <p>
-     	<select class="ui-lang" >
-								<option value="en" selected="">English</option>
-
-								<option value="es">Español</option>
-								<option value="cn">中文</option>
-
-							</select>
-	</p>
-	</div>
-				
-	
-	
-</div>
-
-            </div><!-- /right panel -->
-   
-  			<div data-role="content" id="linksDiv">
-				<div class="bullets">
-					<ul>
-        				<li id="li_cloud"></li>
-        				<li id="li_links" class="activated"></li>
-        				<li id="li_img"></li>
-        				<li id="li_uses"></li>
-        				<li id="li_tweets"></li>
-        			</ul>
-				</div>
-			</div>			
-		</div>
+                <div id="options">
+                    <span id="cloud1" lang="en"><p>Cloud</p></span>
+                    <span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
+                    <span id="links1" lang="en"><p>Links</p></span>
+                    <span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
+                    <span id="tweets1" lang="en"><p>Tweets</p></span>
+                </div>
 
 
-<!--Next Page-->				
-<div data-role="page" id="imagepage">
-			
-            <div data-role="popup" data-theme="b" id="popupBasic">
-                <form>
-                    <dl>          
-                        <dt lang="en">Search: </dt>
-                        <dd>
-                            <input type="search"  data-clear-btn="true" data-mini="true" />
-                        </dd>
-
-                        <dt lang="en">Language: </dt>
-                        <dd>
-                            <select data-mini="true" data-inline="true">
-                                <option lang="en">English</option>
-                                <option lang="en">Spanish</option>
-                            </select>
-                        </dd>
-                    </dl>
-
-                    <label>
-                        <input data-mini="true" type="checkbox" name="checkbox-0 " lang="en">Include retweets
-                    </label>
-                    <button type="submit" data-mini="true" data-theme="b" lang="en">Search</button>
-                </form>
-            </div><!-- search area -->
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
-
-
-              <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
-                <h1>
-                    <a href="#popupBasic" data-rel="popup" data-role="button"  data-transition="slidedown" lang="en">Search</a>
-                </h1>
-            <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
-
-
-
-            </div><!-- /header -->
-	
-			          <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
-                <p>Left reveal panel.</p>
-		
-				<div id="options">
-            		<span id="cloud1" lang="en"><p>Cloud</p></span>
-            		<span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
-            		<span id="links1" lang="en"><p>Links</p></span>
-            		<span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
-            		<span id="tweets1" lang="en"><p>Tweets</p></span>
-            	</div>
-			
-			
-						
-		</div>
-               
-
-            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
-           
-
-				<div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
-
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Account</h3>
-	     <div >
-            	
-		
-      
-            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
-            <label for="radio-choice-1">Hanwei</label>
-
-            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
-            <label for="radio-choice-2">Rachel</label>
-
-            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
-            <label for="radio-choice-3">Sean</label>
-
-            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
-            <label for="radio-choice-4">Rui</label>
-     
-		</div>
-	</div>
-	
-	<div data-role="collapsible" data-collapsed="false">
-	<h3 lang="en">Language</h3>
-	  
-
-  <p>
-     
-      	<select class="ui-lang" >
-								<option value="en" selected="">English</option>
-
-								<option value="es">Español</option>
-								<option value="cn">中文</option>
-
-							</select>
-	</p>
-	</div>
-				
-	
-	
-</div>
 
             </div>
-  			<div data-role="content" id="imageDiv">
-				<div class="bullets">
-					<ul>
-        				<li id="li_cloud"></li>
-        				<li id="li_links"></li>
-        				<li id="li_img" class="activated"></li>
-        				<li id="li_uses"></li>
-        				<li id="li_tweets"></li>
-        			</ul>
-				</div>
-			</div>			
-		</div>
-			
-		<div data-role="page" id="mentionedpage">
-			
-			<div data-role="popup" data-theme="b" id="popupBasic">
-                <form>
-                    <dl>          
-                        <dt lang="en">Search: </dt>
-                        <dd>
-                            <input type="search"  data-clear-btn="true" data-mini="true" />
-                        </dd>
 
-                        <dt lang="en">Language: </dt>
-                        <dd>
-                            <select data-mini="true" data-inline="true">
-                                <option lang="en">English</option>
-                                <option lang="en">Spanish</option>
+
+            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
+
+
+                <div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Account</h3>
+                        <div >
+
+
+
+                            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
+                            <label for="radio-choice-1">Hanwei</label>
+
+                            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
+                            <label for="radio-choice-2">Rachel</label>
+
+                            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
+                            <label for="radio-choice-3">Sean</label>
+
+                            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
+                            <label for="radio-choice-4">Rui</label>
+
+                        </div>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3 lang="en">Language</h3>
+
+
+                        <p>
+
+                            <select class="ui-lang" >
+                                <option value="en" selected="">English</option>
+
+                                <option value="es">Español</option>
+                                <option value="cn">中文</option>
+
                             </select>
-                        </dd>
-                    </dl>
+                        </p>
+                    </div>
 
-                    <label>
-                        <input data-mini="true" type="checkbox" name="checkbox-0 " lang="en">Include retweets
-                    </label>
-                    <button type="submit" data-mini="true" data-theme="b" lang="en">Search</button>
-                </form>
-            </div><!-- search area -->
-			
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
+
+
+                </div>
+
+            </div>
+            <div data-role="content" id="imageDiv">
+                <div class="bullets">
+                    <ul>
+                        <li id="li_cloud"></li>
+                        <li id="li_links"></li>
+                        <li id="li_img" class="activated"></li>
+                        <li id="li_uses"></li>
+                        <li id="li_tweets"></li>
+                    </ul>
+                </div>
+            </div>			
+        </div>
+
+        <!--Next Page-->
+        <div data-role="page" id="mentionedpage">
+
+
+            <div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
 
 
                 <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
                 <h1>
                     <a href="#popupBasic" data-rel="popup" data-role="button"  data-transition="slidedown">Search</a>
                 </h1>
-            <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+                <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
 
 
 
             </div><!-- /header -->
-			
-			          <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
+
+            <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
                 <p>Left reveal panel.</p>
-		
-				<div id="options">
-            		<span id="cloud1" lang="en"><p>Cloud</p></span>
-            		<span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
-            		<span id="links1" lang="en"><p>Links</p></span>
-            		<span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
-            		<span id="tweets1" lang="en"><p>Tweets</p></span>
-            	</div>
-			
-			
-						
-		</div>
-               
 
-            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
-           
+                <div id="options">
+                    <span id="cloud1" lang="en"><p>Cloud</p></span>
+                    <span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
+                    <span id="links1" lang="en"><p>Links</p></span>
+                    <span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
+                    <span id="tweets1" lang="en"><p>Tweets</p></span>
+                </div>
 
-				<div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
 
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Account</h3>
-	     <div >
-            	
-		
-      
-            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
-            <label for="radio-choice-1">Hanwei</label>
-
-            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
-            <label for="radio-choice-2">Rachel</label>
-
-            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
-            <label for="radio-choice-3">Sean</label>
-
-            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
-            <label for="radio-choice-4">Rui</label>
-     
-		</div>
-	</div>
-	
-	<div data-role="collapsible" data-collapsed="false">
-	<h3 lang="en">Language</h3>
-	  
-
-  <p>
-     
-      	<select class="ui-lang" >
-								<option value="en" selected="">English</option>
-
-								<option value="es">Español</option>
-								<option value="cn">中文</option>
-
-							</select>
-	</p>
-	</div>
-				
-	
-	
-</div>
 
             </div>
-  			<div data-role="content" id="mentionedDiv">
-				<div class="bullets">
-					<ul>
-        				<li id="li_cloud"></li>
-        				<li id="li_links"></li>
-        				<li id="li_img"></li>
-        				<li id="li_uses" class="activated"></li>
-        				<li id="li_tweets"></li>
-        			</ul>
-				</div>
-			</div>			
-		</div>
 
 
-<!--Next Page-->	
-<div data-role="page" id="tweetspage">
-			
+            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
+
+
+                <div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Account</h3>
+                        <div >
+
+
+
+                            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
+                            <label for="radio-choice-1">Hanwei</label>
+
+                            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
+                            <label for="radio-choice-2">Rachel</label>
+
+                            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
+                            <label for="radio-choice-3">Sean</label>
+
+                            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
+                            <label for="radio-choice-4">Rui</label>
+
+                        </div>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3 lang="en">Language</h3>
+
+
+                        <p>
+
+                            <select class="ui-lang" >
+                                <option value="en" selected="">English</option>
+
+                                <option value="es">Español</option>
+                                <option value="cn">中文</option>
+
+                            </select>
+                        </p>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <div data-role="content" id="mentionedDiv">
+                <div class="bullets">
+                    <ul>
+                        <li id="li_cloud"></li>
+                        <li id="li_links"></li>
+                        <li id="li_img"></li>
+                        <li id="li_uses" class="activated"></li>
+                        <li id="li_tweets"></li>
+                    </ul>
+                </div>
+            </div>			
+        </div>
+
+
+        <!--Next Page: tweetspage-->	
+        <div data-role="page" id="tweetspage">
+
+            <!-- search area -->
             <div data-role="popup" data-theme="b" id="popupBasic">
                 <form>
                     <dl>          
-                        <dt lang="en">Search: </dt>
+                        <dt>Search: </dt>
                         <dd>
-                            <input type="search"  data-clear-btn="true" data-mini="true" />
+                            <input id="inputSearch" type="search"  data-clear-btn="true" data-mini="true" />
                         </dd>
 
-                        <dt lang="en">Language: </dt>
+                        <dt>Language: </dt>
                         <dd>
-                            <select data-mini="true" data-inline="true">
-                                <option lang="en">English</option>
-                                <option lang="en">Spanish</option>
+                            <select id="selectlang" data-mini="true" data-inline="true">
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="it">Italian</option>
+                                <option value="ps">Portuguese</option>
+                                <option lang="en" value="*">All</option>
                             </select>
                         </dd>
                     </dl>
 
                     <label>
-                        <input data-mini="true" type="checkbox" name="checkbox-0 " lang="en">Include retweets
+                        <input id="inputIncRT" data-mini="true" type="checkbox" checked="checked">Include retweets
                     </label>
-                    <button type="submit" data-mini="true" data-theme="b" lang="en">Search</button>
+                    <input type="button" id="submitSearch" data-mini="true" data-theme="b" value="Search" />
+  
+                    <!--
+                        <input  type="button"  data-theme="b" onclick="window.open('http://apache.org', '_system', 'location=yes');" value="open" />
+                    -->    
                 </form>
-            </div><!-- search area -->
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
+            </div>
+            <!-- /search area -->
 
 
-               <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+            <div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
+                <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
                 <h1>
                     <a href="#popupBasic" data-rel="popup" data-role="button"  data-transition="slidedown" lang="en">Search</a>
                 </h1>
-            <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+                <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Reveal</a>
+            </div>
+            <!-- /header -->
 
-
-
-            </div><!-- /header -->
-			
-			          <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
+            <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-dismissible="true" data-theme="a">
                 <p>Left reveal panel.</p>
-		
-				<div id="options">
-            		<span id="cloud1" lang="en"><p>Cloud</p></span>
-            		<span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
-            		<span id="links1" lang="en"><p>Links</p></span>
-            		<span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
-            		<span id="tweets1" lang="en"><p>Tweets</p></span>
-            	</div>
-			
-			
-						
-		</div>
-               
 
-            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
-           
+                <div id="options">
+                    <span id="cloud1" lang="en"><p>Cloud</p></span>
+                    <span id="imgvideo1" lang="en"><p>Images&<br>Videos</p></span>
+                    <span id="links1" lang="en"><p>Links</p></span>
+                    <span id="mentioned1" lang="en"><p>Mentioned<br>Users</p></span>
+                    <span id="tweets1" lang="en"><p>Tweets</p></span>
+                </div>
 
-				<div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
 
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Account</h3>
-	     <div >
-            	
-		
-      
-            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
-            <label for="radio-choice-1">Hanwei</label>
-
-            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
-            <label for="radio-choice-2">Rachel</label>
-
-            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
-            <label for="radio-choice-3">Sean</label>
-
-            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
-            <label for="radio-choice-4">Rui</label>
-     
-		</div>
-	</div>
-	
-	<div data-role="collapsible" data-collapsed="false">
-	<h3>Language</h3>
-	  
-
-  <p>
-     
-       	<select class="ui-lang" >
-								<option value="en" selected="">English</option>
-
-								<option value="es">Español</option>
-								<option value="cn">中文</option>
-
-							</select>
-	</p>
-	</div>
-				
-	
-	
-</div>
 
             </div>
-  			<div data-role="content" id="tweetDiv">
-				<div class="bullets">
-					<ul>
-        				<li id="li_cloud"></li>
-        				<li id="li_links"></li>
-        				<li id="li_img"></li>
-        				<li id="li_uses"></li>
-        				<li id="li_tweets" class="activated"></li>
-        			</ul>
-				</div>
-			</div>				
-		</div>
-        
-       
-   
-   
 
- 
+
+            <div data-role="panel" id="rightpanel1" data-position="right" data-display="reveal" data-dismissible="true" data-theme="a">
+
+
+                <div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Account</h3>
+                        <div >
+                            <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
+                            <label for="radio-choice-1">Hanwei</label>
+
+                            <input type="radio" name="account" id="radio-choice-2" value="choice-2" />
+                            <label for="radio-choice-2">Rachel</label>
+
+                            <input type="radio" name="account" id="radio-choice-3" value="choice-3" />
+                            <label for="radio-choice-3">Sean</label>
+
+                            <input type="radio" name="account" id="radio-choice-4" value="choice-4" />
+                            <label for="radio-choice-4">Rui</label>
+
+                        </div>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Language</h3>
+                        <p>
+                            <select class="ui-lang" >
+                                <option value="en" selected="">English</option>
+                                <option value="es">Español</option>
+                                <option value="cn">中文</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div data-role="content" id="tweetDiv">
+                <div class="bullets">
+                    <ul>
+                        <li id="li_cloud"></li>
+                        <li id="li_links"></li>
+                        <li id="li_img"></li>
+                        <li id="li_uses"></li>
+                        <li id="li_tweets" class="activated"></li>
+                    </ul>
+                </div>
+            </div>				
+        </div>
+
 
 </body>
 </html>
