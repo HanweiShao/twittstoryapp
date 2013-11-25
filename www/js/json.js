@@ -1,21 +1,67 @@
-window.onload = function()
-{
-    processResult(result);
-};
+var resultObj;
+
+//tweets index that had already been shown
+var startTweets = 0;
+
+$(document).ready(function(){
+    
+    $("#submitSearch").click(function() {
+        
+        $("#popupBasic").slideUp();
+        $.ajax({
+            dataType: "json",
+            url: "http://www.twittstory.com/TwitterSearch",
+            type: "POST",
+            data: {
+                query: $("#inputSearch").val(),
+                lang: $("#selectlang").val(),
+                includeRT: $("#inputIncRT").attr('checked') ? true : false
+            },
+            xhrFields: {
+                withCredentials: true 
+            }
+        })
+        .done(function(msg) {
+            console.log(msg);
+            console.log(JSON.stringify(msg));
+            processResult(msg);
+        })
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ", " + error;
+            console.log("Request Failed: " + err);
+        })
+        ;//end of ajax
+    });
+    
+    
+    $(window).scroll(function () {
+       if ($(document).height() <= $(window).scrollTop() + $(window).height()) {
+            if ($.mobile.activePage.attr('id') == 'tweetspage') {
+                RenderTweets();
+            }
+       }
+    });
+});
 
 function processResult(result) {
 
-    var obj = eval(result);
-    //alert(obj.tweets[0].text);
+    resultObj =  result;
+    RenderTweets();
+}
 
-    for (var i = 0; i < 10; i++)
+function RenderTweets()
+{
+    var tweetList = resultObj.tweets;
+    var end = (startTweets + 10 > tweetList.length) ? tweetList.length : startTweets + 10;
+    
+    for (var i = startTweets; i < end; i++)
     {
-        var tweet = obj.tweets[i];
+        var tweet = tweetList[i];
         var tweetHtml = 
                 "<div style='margin-bottom:5px'>" +
-                    "<div style=' float:left'><img src='{0}' /></div>" +
+                    "<div style=' float:left;'><img src='{0}' /></div>" +
                        "<div style='display:inline-block;margin-left:5px'>" +
-                            "{1}. <b>{2}</b> @{3} <br/>({4} followers, {5} retweets)<br />" +
+                            "{1}. <b>{2}</b> @{3} <br/>({4} followers, {5} retweets)<br /><br />" +
                         "</div>" +
                     "<div style='clear:both'>" +
                             "{6}" +                
@@ -23,7 +69,7 @@ function processResult(result) {
                     "<hr>"+
                 "</div>";
 
-        tweetHtml = tweetHtml.format(
+        tweetHtml = String.format( tweetHtml,
                 tweet.user_pic, //0.pic
                 i + 1,          //1
                 tweet.user,     //2
@@ -32,21 +78,13 @@ function processResult(result) {
                 tweet.retweetCount,
                 urlify(tweet.text));
 
-
-
-
         $("#tweetDiv").append(tweetHtml);
+        startTweets++;
     }
+    
 }
 
-String.prototype.format = function() {
-    var content = this;
-    for (var i = 0; i < arguments.length; i++) {
-        var replacement = '{' + i + '}';
-        content = content.replace(replacement, arguments[i]);
-    }
-    return content;
-};
+
 
 /*
  * http://stackoverflow.com/questions/1500260/detect-urls-in-text-with-javascript
@@ -56,8 +94,8 @@ String.prototype.format = function() {
 function urlify(text) {
     var urlRegex = /(https?:\/\/[^\s]+)/g;
     return text.replace(urlRegex, function(url) {
-        return '<a href="' + url + '" target="_blank">' + url + '</a>';
+//        return String.format("<a href='#' onclick=\"window.open('{0}', '_system');\">{0}</a>",
+//                            url);
+        return String.format("<a href='{0}'>{0}</a>", url);
     })
-    // or alternatively
-    // return text.replace(urlRegex, '<a href="$1">$1</a>')
 }
