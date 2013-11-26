@@ -10,6 +10,13 @@ var pages = [
 ];
 
 $(document).ready(function(){
+	
+	$("#cloudDiv").attr("height", window.innerHeight - 80);
+	$("#linkDiv").attr("height", window.innerHeight - 80);
+	$("#imageDiv").attr("height", window.innerHeight - 80);
+	$("#mentionedDiv").attr("height", window.innerHeight - 80);
+	$("#tweetDiv").attr("height", window.innerHeight - 80);
+
     $("#left-button").on("click", function() {
         $("#left-panel").panel("open");
     });
