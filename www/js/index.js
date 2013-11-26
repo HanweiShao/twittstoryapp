@@ -20,20 +20,40 @@ $(document).ready(function(){
 
     //balloon
     $("#cloud1").click(function() {
-        $.mobile.changePage($("#cloudpage"), "none");
+		
+		$("#li_tweets").removeClass("activated");
+		$("#li_uses").removeClass("activated");
+		$("#li_links").removeClass("activated");
+		$("#li_img").removeClass("activated");
+		$("#li_cloud").addClass("activated");
     });
     $("#imgvideo1").click(function() {
-        $.mobile.changePage($("#imagepage"), "none");
+       		$("#li_tweets").removeClass("activated");
+		$("#li_uses").removeClass("activated");
+		$("#li_links").removeClass("activated");
+		$("#li_cloud").removeClass("activated");
+		$("#li_img").addClass("activated");
     });
     $("#tweets1").click(function() {
-        $.mobile.changePage($("#tweetspage"), "none");
-        
+     			$("#li_cloud").removeClass("activated");
+		$("#li_uses").removeClass("activated");
+		$("#li_links").removeClass("activated");
+		$("#li_img").removeClass("activated");
+		$("#li_tweets").addClass("activated");
     });
     $("#links1").click(function() {
-        $.mobile.changePage($("#linkspage"), "none");
+    	$("#li_tweets").removeClass("activated");
+		$("#li_uses").removeClass("activated");
+		$("#li_cloud").removeClass("activated");
+		$("#li_img").removeClass("activated");
+		$("#li_links").addClass("activated");
     });
     $("#mentioned1").click(function() {
-        $.mobile.changePage($("#mentionedpage"), "none");
+        		$("#li_tweets").removeClass("activated");
+		$("#li_cloud").removeClass("activated");
+		$("#li_links").removeClass("activated");
+		$("#li_img").removeClass("activated");
+		$("#li_uses").addClass("activated");
     });
   /*
   $("#cloudpage").on( "swipeleft", swipeleftHandler1);
@@ -119,7 +139,7 @@ $(document).ready(function(){
         });
     }
 
-
+	
 /*
 function swiperightHandler1(event){
 	$.mobile.changePage($("#tweetspage"), "none");

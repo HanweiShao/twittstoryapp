@@ -152,28 +152,29 @@ h1 {
 	color: white;
 }
 
+
 #options #imgvideo1{
-	height:200px;
-	width: 200px;
+	height:160px;
+	width: 160px;
 	left: 40%;
 	top: 10%;
-	background-color: red;
+ position: absolute;
 }
 
 #options #cloud1{
-	height:200px;
-	width: 200px;
+	height:160px;
+	width: 160px;
 	left: 3%;
 	top: 15%;
-	background-color: blue;
+ position: absolute;
 }
 
 #options #tweets1{
-	height:260px;
-	width: 260px;
+	height:160px;
+	width: 160px;
 	left: 30%;
 	top: 35%;
-	background-color: yellow;
+	 position: absolute;
 }
 
 #options #mentioned1{
@@ -181,14 +182,15 @@ h1 {
 	width: 180px;
 	left: 3%;
 	top: 45%;
-	background-color: purple;
+ position: absolute;
 }
 
 #options #links1{
 	height:180px;
 	width: 180px;
 	left: 40%;
-	top: 65%;
-	background-color: green;
+	top: 55%;
+	
+	 position: absolute;
 }
 
