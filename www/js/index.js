@@ -48,52 +48,77 @@ $(document).ready(function(){
   $("#tweetspage").on( "swiperight", swiperightHandler5);
 */
 
-    $("#Div1").on("swipeleft", swipeleftHandler1);
-    $("#Div2").on("swipeleft", swipeleftHandler2);
-    $("#Div3").on("swipeleft", swipeleftHandler3);
-    $("#Div4").on("swipeleft", swipeleftHandler4);
-    $("#tweetDiv").on("swipeleft", swipeleftHandler5);
+    $("#cloudDiv").on("swipeleft", swipeleftHandler1);
+    $("#linkDiv").on("swipeleft", swipeleftHandler2);
+    $("#imageDiv").on("swipeleft", swipeleftHandler3);
+    $("#mentionedDiv").on("swipeleft", swipeleftHandler4);
+    
+    $("#linkDiv").on("swiperight", swiperightHandler1);
+    $("#imageDiv").on("swiperight", swiperightHandler2);
+    $("#mentionedDiv").on("swiperight", swiperightHandler3);
+    $("#tweetDiv").on("swiperight", swiperightHandler4);
   
-    //$("#tweetDiv").on( "swiperight", swiperightHandler1);
+
 
 
     function swipeleftHandler1(event) {
-        //alert("1");
-        $("#Div1").fadeOut(300, function() {
-            $("#Div2").fadeIn(10);
+        $("#cloudDiv").fadeOut(300, function() {
+            $("#linkDiv").fadeIn(10);
+            $("#li_cloud").removeClass("activated");
+            $("#li_links").addClass("activated");
         });
-        
-        //$("#tweetDiv").fadeOut(500);
-        //$("#tweetDiv2").fadeIn(500);
-        //$.mobile.changePage($("#tweetDiv"), "none");
     }
     function swipeleftHandler2(event) {
-        //alert("2");
-        $("#Div2").fadeOut(300, function() {
-            $("#Div3").fadeIn(10);
+        $("#linkDiv").fadeOut(300, function() {
+            $("#imageDiv").fadeIn(10);
+            $("#li_links").removeClass("activated");
+            $("#li_img").addClass("activated");
         });
-        //$.mobile.changePage($("#tweetDiv2"), "none");
     }
     function swipeleftHandler3(event) {
-        //alert("3");
-        $("#Div3").fadeOut(300, function() {
-            $("#Div4").fadeIn(10);
+        $("#imageDiv").fadeOut(300, function() {
+            $("#mentionedDiv").fadeIn(10);
+            $("#li_img").removeClass("activated");
+            $("#li_uses").addClass("activated");
         });
-        //$.mobile.changePage($("#tweetDiv3"), "none");
     }
     function swipeleftHandler4(event) {
-        //$.mobile.changePage($("#tweetDiv4"), "none");
-        $("#Div4").fadeOut(300, function() {
+        $("#mentionedDiv").fadeOut(300, function() {
             $("#tweetDiv").fadeIn(10);
             $("#li_uses").removeClass("activated");
             $("#li_tweets").addClass("activated");
         });
     }
-    function swipeleftHandler5(event) {
-        //$.mobile.changePage($("#tweetDiv5"), "none");
-
-
+    
+    function swiperightHandler1(event) {
+        $("#linkDiv").fadeOut(300, function() {
+            $("#cloudDiv").fadeIn(10);
+            $("#li_links").removeClass("activated");
+            $("#li_cloud").addClass("activated");
+        });
     }
+    function swiperightHandler2(event) {
+        $("#imageDiv").fadeOut(300, function() {
+            $("#linkDiv").fadeIn(10);
+            $("#li_img").removeClass("activated");
+            $("#li_links").addClass("activated");
+        });
+    }
+    function swiperightHandler3(event) {
+        $("#mentionedDiv").fadeOut(300, function() {
+            $("#imageDiv").fadeIn(10);
+            $("#li_uses").removeClass("activated");
+            $("#li_img").addClass("activated");
+        });
+    }
+    function swiperightHandler4(event) {
+        $("#tweetDiv").fadeOut(300, function() {
+            $("#mentionedDiv").fadeIn(10);
+            $("#li_tweets").removeClass("activated");
+            $("#li_uses").addClass("activated");
+        });
+    }
+
 
 /*
 function swiperightHandler1(event){

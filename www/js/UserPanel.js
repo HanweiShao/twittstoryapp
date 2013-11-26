@@ -26,7 +26,8 @@ function showUserPanel(){
                 users[i].text,
                 userpic[i],
                 users[i].size);
-       $("#mentionedDiv").append(userHtml);
+       	$("#mentionedDiv").append(userHtml);
+       
 	}
 	for(var i=12; i<users_length; i++){
 		var userHtml = 
@@ -38,6 +39,7 @@ function showUserPanel(){
         userHtml = String.format( userHtml,
                 users[i].text,
                 users[i].size);
+                
         $("#mentionedDiv").append(userHtml);
 	}
 }

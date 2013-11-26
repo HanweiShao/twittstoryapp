@@ -127,7 +127,7 @@
             <!-- page indicator-->
             <div class="bullets">
                 <ul>
-                    <li id="li_cloud"></li>
+                    <li id="li_cloud" class="activated"></li>
                     <li id="li_links"></li>
                     <li id="li_img"></li>
                     <li id="li_uses"></li>
@@ -136,11 +136,13 @@
             </div>
 
             <!--five contents-->        
-            <div data-role="content" id="Div1" style="width:350px; border:1px solid black">111111</div>
-            <div data-role="content" id="Div2" style="display:none; width:350px; border:1px solid black">2222222</div>
-            <div data-role="content" id="Div3" style="display:none; width:350px; border:1px solid black">3333333</div>
-            <div data-role="content" id="Div4" style="display:none; width:350px; border:1px solid black">4444444</div>
-            <div data-role="content" id="tweetDiv" style="display:none; width:350px; border:1px solid black">5</div>
+            <div data-role="content" id="cloudDiv" style="height: 200px">
+            	<clouddiv style="font-family: impact"></clouddiv>
+			</div>
+            <div data-role="content" id="linkDiv" style="display:none; height:200px"></div>
+            <div data-role="content" id="imageDiv" style="display:none; height:200px"></div>
+            <div data-role="content" id="mentionedDiv" style="display:none; height:200px"></div>
+            <div data-role="content" id="tweetDiv" style="display:none; height:200px"></div>
     </div>				
 
 

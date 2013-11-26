@@ -114,6 +114,11 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
+.bullets{
+
+	display:block;
+	height: 20px;
+}
 .bullets li{
 	display:block;
 	width:10px;
