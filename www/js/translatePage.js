@@ -1,15 +1,4 @@
 $(document).ready(function() {
-	alert("change");
-	 NLT.init(TRANSLATIONS);
-$(".ui-lang").on("change", function changeUILanguage() {
-var lang = $("#ui-lang").val();
-NLT.currentLocale(lang);
-
-
-
-		
-		
-}); 
 
 
 var isPhone=false;

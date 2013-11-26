@@ -141,21 +141,18 @@
 				1
             	<clouddiv style="font-family: impact"></clouddiv>
 			</div>
-            <div data-role="content" id="linkDiv" style="display:none; height:200px">2</div>
-            <div data-role="content" id="imageDiv" style="display:none; height:200px">3</div>
-            <div data-role="content" id="mentionedDiv" style="display:none; height:200px">4</div>
-            <div data-role="content" id="tweetDiv" style="display:none; height:200px">5</div>
+            <div data-role="content" id="linkDiv" style="display:none; height:200px"></div>
+            <div data-role="content" id="imageDiv" style="display:none; height:200px"></div>
+            <div data-role="content" id="mentionedDiv" style="display:none; height:200px"></div>
+            <div data-role="content" id="tweetDiv" style="display:none; height:200px"></div>
     </div>				
 
 <script>
 		
 	 NLT.init(TRANSLATIONS);
 $(".ui-lang").on("change", function changeUILanguage() {
-	alert("change");
 var lang = $("#ui-lang").val();
-NLT.currentLocale("es");
-
-
+NLT.currentLocale(lang);
 
 		
 		
