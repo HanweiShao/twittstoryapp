@@ -36,7 +36,8 @@ $(document).ready(function(){
     
     $(window).scroll(function () {
        if ($(document).height() <= $(window).scrollTop() + $(window).height()) {
-            if ($.mobile.activePage.attr('id') == 'tweetspage') {
+            //if ($.mobile.activePage.attr('id') == 'tweetspage') {
+            if ($("#tweetDiv").is(':visible')) {
                 RenderTweets();
             }
        }
