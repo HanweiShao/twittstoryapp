@@ -9,7 +9,7 @@ var WordcloudPanel = (function() {
         
         
         var scale = 1,
-            w = 700,
+            w = window.innerWidth-50,
             h = window.innerHeight - 24 - 7 - 110,
             counter = 0;
 
@@ -92,7 +92,7 @@ var WordcloudPanel = (function() {
             var fontSize = d3.scale.linear().range([10, 100]);
             if (words.length) fontSize.domain([+words[words.length - 1].size || 1, +words[0].size]);  
 
-            w = 700;
+            w = window.innerWidth-50;
             h = window.innerHeight - 24 - 7 - 110;
 
             var container = d3.select(html)
@@ -162,3 +162,9 @@ var WordcloudPanel = (function() {
    
     return WordcloudPanel;
 })();
+
+function wordcloudShow(words){
+	var wordCloud =  new WordcloudPanel(words);
+	var stop;
+	wordCloud.renderOn("clouddiv");
+}

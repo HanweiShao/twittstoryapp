@@ -48,6 +48,7 @@ function processResult(result) {
     resultObj =  result;
     RenderTweets();
     UserPanel();
+    wordcloudShow(resultObj.words);
 }
 
 function RenderTweets()
