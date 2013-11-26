@@ -37,12 +37,12 @@
             <div data-role="popup" data-theme="b" id="popupBasic">
                 <form>
                     <dl>          
-                        <dt>Search: </dt>
+                        <dt lang="en">Search: </dt>
                         <dd>
                             <input id="inputSearch" type="search"  data-clear-btn="true" data-mini="true" />
                         </dd>
 
-                        <dt>Language: </dt>
+                        <dt lang="en">Language: </dt>
                         <dd>
                             <select id="selectlang" data-mini="true" data-inline="true">
                                 <option value="en">English</option>
@@ -112,9 +112,9 @@
                     </div>
 
                     <div data-role="collapsible" data-collapsed="false">
-                        <h3>Language</h3>
+                        <h3><span lang="en">Language</span></h3>
                         <p>
-                            <select class="ui-lang" >
+                            <select class="ui-lang" onchange="changeUILanguage()">
                                 <option value="en" selected="">English</option>
                                 <option value="es">Español</option>
                                 <option value="cn">中文</option>
@@ -138,15 +138,29 @@
 
             <!--five contents-->        
             <div data-role="content" id="cloudDiv" style="height: 200px">
+				1
             	<clouddiv style="font-family: impact"></clouddiv>
 			</div>
-            <div data-role="content" id="linkDiv" style="display:none; height:200px"></div>
-            <div data-role="content" id="imageDiv" style="display:none; height:200px"></div>
-            <div data-role="content" id="mentionedDiv" style="display:none; height:200px"></div>
-            <div data-role="content" id="tweetDiv" style="display:none; height:200px"></div>
+            <div data-role="content" id="linkDiv" style="display:none; height:200px">2</div>
+            <div data-role="content" id="imageDiv" style="display:none; height:200px">3</div>
+            <div data-role="content" id="mentionedDiv" style="display:none; height:200px">4</div>
+            <div data-role="content" id="tweetDiv" style="display:none; height:200px">5</div>
     </div>				
 
+<script>
+		
+	 NLT.init(TRANSLATIONS);
+$(".ui-lang").on("change", function changeUILanguage() {
+	alert("change");
+var lang = $("#ui-lang").val();
+NLT.currentLocale("es");
 
+
+
+		
+		
+}); 
+		</script>
 
 </body>
 </html>
