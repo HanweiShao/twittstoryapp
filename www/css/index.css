@@ -157,7 +157,7 @@ h1 {
 	height:160px;
 	width: 160px;
 	left: 40%;
-	top: 10%;
+	top: 50px;
  position: absolute;
 }
 
@@ -165,7 +165,7 @@ h1 {
 	height:160px;
 	width: 160px;
 	left: 3%;
-	top: 15%;
+	top:80px;
  position: absolute;
 }
 
@@ -173,7 +173,7 @@ h1 {
 	height:160px;
 	width: 160px;
 	left: 30%;
-	top: 35%;
+	top: 170px;
 	 position: absolute;
 }
 
@@ -181,7 +181,7 @@ h1 {
 	height:180px;
 	width: 180px;
 	left: 3%;
-	top: 45%;
+	top: 270px;
  position: absolute;
 }
 
@@ -189,7 +189,7 @@ h1 {
 	height:180px;
 	width: 180px;
 	left: 40%;
-	top: 55%;
+	top: 300px;
 	
 	 position: absolute;
 }
