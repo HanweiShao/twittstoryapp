@@ -47,6 +47,7 @@ function processResult(result) {
 
     resultObj =  result;
     RenderTweets();
+    UserPanel();
 }
 
 function RenderTweets()
