@@ -202,6 +202,6 @@ function AdjustHeight()
         var d = $("#" + contentDivs[i]);
         if (d.height() < $(window).height())
             d.height($(window).height());
-        d.width($(window).width());
+        d.width($(window).width() * 0.95);
     }
 }
