@@ -164,6 +164,7 @@ var WordcloudPanel = (function() {
 })();
 
 function wordcloudShow(words){
+	$("clouddiv").empty();
 	var wordCloud =  new WordcloudPanel(words);
 	var stop;
 	wordCloud.renderOn("clouddiv");
