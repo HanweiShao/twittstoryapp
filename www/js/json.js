@@ -7,7 +7,8 @@ $(document).ready(function(){
     
     $("#submitSearch").click(function() {
         
-        $("#popupBasic").slideUp();
+        //$("#popupBasic").slideUp();
+        $("#popupBasic").popup( "close" );
         $.ajax({
             dataType: "json",
             url: "http://www.twittstory.com/TwitterSearch",
@@ -25,6 +26,7 @@ $(document).ready(function(){
             console.log(msg);
             console.log(JSON.stringify(msg));
             processResult(msg);
+            AdjustHeight();
         })
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
@@ -46,14 +48,24 @@ $(document).ready(function(){
 
 function processResult(result) {
 
-    resultObj =  result;
-    RenderTweets();
-    UserPanel();
+    for (var i = 1; i < contentDivs.length; i++)
+    {
+        var d = $("#" + contentDivs[i]);
+        d.html("");
+    }
+    resultObj = result;
     wordcloudShow(resultObj.words);
+    UserPanel();
+    
+    //Tweets
+    startTweets = 0;
+    RenderTweets();
+    $("#tweetDiv").css("height","auto");
 }
 
 function RenderTweets()
 {
+    
     var tweetList = resultObj.tweets;
     var end = (startTweets + 10 > tweetList.length) ? tweetList.length : startTweets + 10;
     
