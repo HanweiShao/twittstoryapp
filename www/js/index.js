@@ -1,21 +1,19 @@
 
 
 
-var pages = [
-	"#cloudpage",
-	"#linkspage",
-	"#imagepage",
-	"#mentionedpage",
-	"#tweetspage"
+var contentDivs = [
+	"cloudDiv",
+	"linkDiv",
+	"imageDiv",
+	"mentionedDiv",
+	"tweetDiv"
 ];
+var fadeOutTime = 300;
+var fadInTime = 100;
 
 $(document).ready(function(){
 	
-	$("#cloudDiv").attr("height", window.innerHeight - 80);
-	$("#linkDiv").attr("height", window.innerHeight - 80);
-	$("#imageDiv").attr("height", window.innerHeight - 80);
-	$("#mentionedDiv").attr("height", window.innerHeight - 80);
-	$("#tweetDiv").attr("height", window.innerHeight - 80);
+        AdjustHeight();
 
     $("#left-button").on("click", function() {
         $("#left-panel").panel("open");
@@ -119,58 +117,58 @@ $(document).ready(function(){
 
 
     function swipeleftHandler1(event) {
-        $("#cloudDiv").fadeOut(300, function() {
-            $("#linkDiv").fadeIn(10);
+        $("#cloudDiv").fadeOut(fadeOutTime, function() {
+            $("#linkDiv").fadeIn(fadInTime);
             $("#li_cloud").removeClass("activated");
             $("#li_links").addClass("activated");
         });
     }
     function swipeleftHandler2(event) {
-        $("#linkDiv").fadeOut(300, function() {
-            $("#imageDiv").fadeIn(10);
+        $("#linkDiv").fadeOut(fadeOutTime, function() {
+            $("#imageDiv").fadeIn(fadInTime);
             $("#li_links").removeClass("activated");
             $("#li_img").addClass("activated");
         });
     }
     function swipeleftHandler3(event) {
-        $("#imageDiv").fadeOut(300, function() {
-            $("#mentionedDiv").fadeIn(10);
+        $("#imageDiv").fadeOut(fadeOutTime, function() {
+            $("#mentionedDiv").fadeIn(fadInTime);
             $("#li_img").removeClass("activated");
             $("#li_uses").addClass("activated");
         });
     }
     function swipeleftHandler4(event) {
-        $("#mentionedDiv").fadeOut(300, function() {
-            $("#tweetDiv").fadeIn(10);
+        $("#mentionedDiv").fadeOut(fadeOutTime, function() {
+            $("#tweetDiv").fadeIn(fadInTime);
             $("#li_uses").removeClass("activated");
             $("#li_tweets").addClass("activated");
         });
     }
     
     function swiperightHandler1(event) {
-        $("#linkDiv").fadeOut(300, function() {
-            $("#cloudDiv").fadeIn(10);
+        $("#linkDiv").fadeOut(fadeOutTime, function() {
+            $("#cloudDiv").fadeIn(fadInTime);
             $("#li_links").removeClass("activated");
             $("#li_cloud").addClass("activated");
         });
     }
     function swiperightHandler2(event) {
-        $("#imageDiv").fadeOut(300, function() {
-            $("#linkDiv").fadeIn(10);
+        $("#imageDiv").fadeOut(fadeOutTime, function() {
+            $("#linkDiv").fadeIn(fadInTime);
             $("#li_img").removeClass("activated");
             $("#li_links").addClass("activated");
         });
     }
     function swiperightHandler3(event) {
-        $("#mentionedDiv").fadeOut(300, function() {
-            $("#imageDiv").fadeIn(10);
+        $("#mentionedDiv").fadeOut(fadeOutTime, function() {
+            $("#imageDiv").fadeIn(fadInTime);
             $("#li_uses").removeClass("activated");
             $("#li_img").addClass("activated");
         });
     }
     function swiperightHandler4(event) {
-        $("#tweetDiv").fadeOut(300, function() {
-            $("#mentionedDiv").fadeIn(10);
+        $("#tweetDiv").fadeOut(fadeOutTime, function() {
+            $("#mentionedDiv").fadeIn(fadInTime);
             $("#li_tweets").removeClass("activated");
             $("#li_uses").addClass("activated");
         });
@@ -195,3 +193,15 @@ function swiperightHandler1(event){
 }
 */
 });
+
+
+function AdjustHeight()
+{
+    for (var i = 0; i < contentDivs.length; i++)
+    {
+        var d = $("#" + contentDivs[i]);
+        if (d.height() < $(window).height())
+            d.height($(window).height());
+        d.width($(window).width());
+    }
+}
