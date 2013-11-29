@@ -1,11 +1,13 @@
 var users;
-var userpic = [];
-var countUsers = 0;
+var userpic;
+var countUsers;
 var users_length;
 
 function UserPanel(){
 	users = resultObj.users;
 	users_length = users.length;
+	userpic=[];
+	countUsers=0;
 	for(var i=0; i<12; i++){
 		getUserInfo(users[i].text);
 	}
