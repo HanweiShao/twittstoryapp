@@ -1,18 +1,24 @@
 
 var TRANSLATIONS = [
     // spec
-    ["en", "es"],
+    ["en", "es","cn"],
     
     // index
-    ["Search:", "Búsqueda:"],
-    ["Language:", "Idioma:"],	
+    ["Search:", "Búsqueda:","搜索:"],
+    ["Language:", "Idioma:","语言:"],	
     ["All", "Todos"],
-    ["Search:", "Búsqueda:"],
-    ["Language:", "Idioma:"]
+    ["Include retweets", "Incluir retweets","包含转发"],
+     ["Search:", "Búsqueda:","搜索"],
+     ["Search:", "Búsqueda:","搜索"],
+     ["Account", "cuenta","账户管理"],
     // top bar
+    ["Language", "Idioma","语言"]
+    
+    // web tour
    
-    
-    
 ];
+
+
+
 
 

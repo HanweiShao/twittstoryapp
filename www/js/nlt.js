@@ -37,6 +37,7 @@ var NLT = (function () {
 	}
 	
 	function currentLocale (newLocale) {
+            
 		if (newLocale === undefined) return current;
 		current = newLocale;
 		updateUI();
@@ -47,10 +48,12 @@ var NLT = (function () {
      * Otherwise it will search across the whole page.
      */
 	function updateUI (node) {
+        
         (node === undefined ?
             $("[lang]") :
             $(node).find("[lang]"))
                 .each(function () {
+                   
                     var $node = $(this);
                     if (this.nodeName === "INPUT") {
                         if (this.type === "button" 

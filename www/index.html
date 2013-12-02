@@ -37,12 +37,12 @@
             <div data-role="popup" data-theme="b" id="popupBasic">
                 <form>
                     <dl>          
-                        <dt lang="en">Search: </dt>
+                        <dt><span lang="en">Search:</span></dt>
                         <dd>
                             <input id="inputSearch" type="search"  data-clear-btn="true" data-mini="true" />
                         </dd>
 
-                        <dt lang="en">Language: </dt>
+                        <dt><span lang="en">Language:</span></dt>
                         <dd>
                             <select id="selectlang" data-mini="true" data-inline="true">
                                 <option value="en">English</option>
@@ -55,9 +55,10 @@
                     </dl>
 
                     <label>
-                        <input id="inputIncRT" data-mini="true" type="checkbox" checked="checked">Include retweets
+                        <input id="inputIncRT" data-mini="true" type="checkbox" checked="checked" />
+                        <span lang="en" >Include retweets</span>
                     </label>
-                    <input type="button" id="submitSearch" data-mini="true" data-theme="b" value="Search" />
+                    <input type="button" id="submitSearch" data-mini="true" data-theme="b" value="Search:" lang="en"/>
   
                     <!--
                         <input  type="button"  data-theme="b" onclick="window.open('http://apache.org', '_system', 'location=yes');" value="open" />
@@ -70,7 +71,7 @@
             <div data-role="header" data-theme="b" data-position="fixed" data-id="footer">
                 <a href="#leftpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-r" data-mini="true">Options</a>
                 <h1>
-                    <a href="#popupBasic" data-rel="popup" data-transition="slidedown" lang="en">Search</a>
+                    <a href="#popupBasic" data-rel="popup" data-transition="slidedown" lang="en">Search:</a>
                 </h1>
                 <a href="#rightpanel1" data-role="button" data-inline="true"  class="ui-icon-nodisc" data-icon="arrow-l" data-mini="true" data-iconpos="right">Settings</a>
             </div>
@@ -94,7 +95,7 @@
                 <div data-role="collapsible-set" data-content-theme="b" data-theme="b" data-mini="true">
 
                     <div data-role="collapsible" data-collapsed="false">
-                        <h3>Account</h3>
+                        <h3><span lang="en">Account</span></h3>
                         <div >
                             <input type="radio" name="account" id="radio-choice-1" value="choice-1" checked="checked" />
                             <label for="radio-choice-1">Hanwei</label>
@@ -114,7 +115,7 @@
                     <div data-role="collapsible" data-collapsed="false">
                         <h3><span lang="en">Language</span></h3>
                         <p>
-                            <select class="ui-lang" onchange="changeUILanguage()">
+                            <select id="ui-lang" onchange="changeUILanguage()">
                                 <option value="en" selected="">English</option>
                                 <option value="es">Español</option>
                                 <option value="cn">中文</option>
@@ -150,13 +151,14 @@
 <script>
 		
 	 NLT.init(TRANSLATIONS);
-$(".ui-lang").on("change", function changeUILanguage() {
+ function changeUILanguage() {
 var lang = $("#ui-lang").val();
+
 NLT.currentLocale(lang);
 
 		
 		
-}); 
+}; 
 		</script>
 
 </body>
