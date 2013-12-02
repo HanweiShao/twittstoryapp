@@ -13,7 +13,7 @@ var fadInTime = 100;
 
 $(document).ready(function(){
 	
-        AdjustHeight();
+    AdjustHeight();
 
     $("#left-button").on("click", function() {
         $("#left-panel").panel("open");

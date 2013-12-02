@@ -48,11 +48,11 @@ $(document).ready(function(){
 
 function processResult(result) {
 
-    for (var i = 1; i < contentDivs.length; i++)
+    /*for (var i = 1; i < contentDivs.length; i++)
     {
         var d = $("#" + contentDivs[i]);
         d.html("");
-    }
+    }*/
     resultObj = result;
     wordcloudShow(resultObj.words);
     UserPanel();
