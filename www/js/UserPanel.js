@@ -5,6 +5,12 @@ var users_length;
 var end_user;
 
 function UserPanel(){
+	$("#userInfo").empty();
+	for(var i=1; i<=end_user; i++){
+		var img = $("#img" + i);
+		img.attr("src","");
+	}
+	
 	users = resultObj.users;
 	users_length = users.length;
 	userpic=[];

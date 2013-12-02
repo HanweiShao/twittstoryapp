@@ -12,22 +12,25 @@ $(document).ready(function(){
         $("#popupBasic").popup( "close" );
 
         for(var i=0; i<5; i++){
-        	var div = $("#" + contentDivs[i]);
-        	var loading = document.createElement("img");
-        	loading.setAttribute("src","img/loading.gif");
-        	loading.setAttribute("class","loading");
-       		div.append(loading);
-       		var h = $(window).height();
-       		var w = $(window).width();
-       		$(".loading").css({
+        	$("#" + contentDivs[i]).css({
+        		"opacity":"0"
+        	});
+        }	
+        var loading = document.createElement("img");
+       	loading.setAttribute("src","img/loading.gif");
+       	loading.setAttribute("id","loading");
+      	$("#page").append(loading);
+       	var h = $(window).height();
+       	var w = $(window).width();
+     	$("#loading").css({
        			"position":"absolute",
        			"top":0.3*h,
        			"left":0.3*w,
-       			"width":"100px",
+       			"width":"150px",
         		"z-index":"1"
-        	});
+        });
 
-        }
+        
         $.ajax({
             dataType: "json",
             url: "http://www.twittstory.com/TwitterSearch",
@@ -68,7 +71,7 @@ $(document).ready(function(){
 function processResult(result) {
 
    	
-   	$(".loading").remove();
+   	$("#loading").remove();
    	
     resultObj = result;
     wordcloudShow(resultObj.words);
@@ -78,6 +81,11 @@ function processResult(result) {
     startTweets = 0;
     RenderTweets();
     $("#tweetDiv").css("height","auto");
+    for(var i=0; i<5; i++){
+        	$("#" + contentDivs[i]).css({
+        		"opacity":"1"
+        	});
+    }	
 
 }
 
