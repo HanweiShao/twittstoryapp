@@ -10,19 +10,20 @@ $(document).ready(function(){
         //$("#popupBasic").slideUp();
         
         $("#popupBasic").popup( "close" );
+
         for(var i=0; i<5; i++){
         	var div = $("#" + contentDivs[i]);
         	var loading = document.createElement("img");
-        	loading.setAttribute("src","../img/loading.gif");
+        	loading.setAttribute("src","img/loading.gif");
         	loading.setAttribute("class","loading");
        		div.append(loading);
        		var h = $(window).height();
        		var w = $(window).width();
        		$(".loading").css({
        			"position":"absolute",
-       			"top":0.4*h,
-       			"left":0.45*w,
-       			"width":"30px",
+       			"top":0.3*h,
+       			"left":0.3*w,
+       			"width":"100px",
         		"z-index":"1"
         	});
 
@@ -66,13 +67,9 @@ $(document).ready(function(){
 
 function processResult(result) {
 
-    /*for (var i = 1; i < contentDivs.length; i++)
-    {
-        var d = $("#" + contentDivs[i]);
-        d.html("");
-    }*/
    	
    	$(".loading").remove();
+   	
     resultObj = result;
     wordcloudShow(resultObj.words);
     UserPanel();
@@ -81,6 +78,7 @@ function processResult(result) {
     startTweets = 0;
     RenderTweets();
     $("#tweetDiv").css("height","auto");
+
 }
 
 function RenderTweets()
@@ -88,6 +86,7 @@ function RenderTweets()
     
     var tweetList = resultObj.tweets;
     var end = (startTweets + 10 > tweetList.length) ? tweetList.length : startTweets + 10;
+    $("#tweetDiv").empty();
     
     for (var i = startTweets; i < end; i++)
     {
