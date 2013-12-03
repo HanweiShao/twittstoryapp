@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("#logo").css({
     	"width":$(window).width()*0.95,
     	"position":"relative",
-    	"top":$(window).width()*0.2
+    
     });
 
     $("#left-button").on("click", function() {
