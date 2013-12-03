@@ -13,8 +13,9 @@ $(document).ready(function(){
         
         if($("#start").is(':visible')){// To change from the start screen to results screens
 			$("#start").fadeOut(300, function() {
-            $("#cloudDiv").fadeIn(100);
-         });
+            	$("#cloudDiv").fadeIn(100);
+         	});
+         	$("#bullets").show();
 		}		
         for(var i=0; i<5; i++){
         	$("#" + contentDivs[i]).css({
