@@ -85,7 +85,7 @@ $(document).ready(function(){
 		$("#mentionedDiv").show();
 		$("#tweetDiv").hide();
 		
-	       $("#leftpanel1").panel("close");
+	     $("#leftpanel1").panel("close");
     });
 
 
@@ -98,11 +98,19 @@ $(document).ready(function(){
     $("#imageDiv").on("swiperight", swiperightHandler2);
     $("#mentionedDiv").on("swiperight", swiperightHandler3);
     $("#tweetDiv").on("swiperight", swiperightHandler4);
-  
+  	
+  	//Choose a word and search again
+	$("cloudDiv").click(function(event){
+		var word = event.target.textContent;
+		var searchContent = $("#inputSearch").val() + " " + word;
+		$("#inputSearch").val(searchContent);
+		$("#popupBasic").popup("open");	
+	});
+    
 
+});
 
-
-    function swipeleftHandler1(event) {
+function swipeleftHandler1(event) {
         $("#cloudDiv").fadeOut(fadeOutTime, function() {
             $("#linkDiv").fadeIn(fadInTime);
             $("#li_cloud").removeClass("activated");
@@ -251,10 +259,6 @@ function TwitterLoginPageSubmitConfirm(page)
     });//end of ajax  ;
     
 }
-
-
-
-});
 
 
 function AdjustHeight()

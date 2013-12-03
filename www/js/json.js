@@ -5,6 +5,12 @@ var startTweets = 0;
 
 $(document).ready(function(){
     
+    //Choose a word and search again
+	$("svg g text").click(function(event){
+		var word = event.target.innerHTML();
+		var searchContent = $("#inputSearch").val() + " " + word;		
+	});
+    
     $("#submitSearch").click(function() {
         
         //$("#popupBasic").slideUp();
@@ -35,7 +41,7 @@ $(document).ready(function(){
        			"width":"150px",
         		"z-index":"1"
         });
-
+		
         
         $.ajax({
             dataType: "json",
@@ -55,7 +61,7 @@ $(document).ready(function(){
             console.log(JSON.stringify(msg));
             processResult(msg);
             AdjustHeight();
-            $("#inputSearch").val(""); //set the search input to blank
+            
         })
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
