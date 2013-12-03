@@ -145,5 +145,5 @@ function urlify(text) {
 //        return String.format("<a href='#' onclick=\"window.open('{0}', '_system');\">{0}</a>",
 //                            url);
         return String.format("<a href='{0}'>{0}</a>", url);
-    })
+    });
 }
