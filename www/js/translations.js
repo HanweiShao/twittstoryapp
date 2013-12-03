@@ -12,7 +12,12 @@ var TRANSLATIONS = [
      ["Search:", "Búsqueda:","搜索"],
      ["Account", "cuenta","账户管理"],
     // top bar
-    ["Language", "Idioma","语言"]
+    ["Language", "Idioma","语言"],
+    ["concept", "concepto","概念"],
+    ['"exact phrase"', '"frase exacta"',"精确句子"],
+    ["#hashtag", "#hashtag","井号(#)标签"],
+    ["from:@user", "from:@usuario","来自@用户"],
+    ["mentioning @user", "mencionando a @usuario","提到@用户"]
     
     // web tour
    
