@@ -55,6 +55,7 @@ $(document).ready(function(){
             console.log(JSON.stringify(msg));
             processResult(msg);
             AdjustHeight();
+            $("#inputSearch").val(""); //set the search input to blank
         })
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;

@@ -31,7 +31,7 @@ function previewLinks(result) {
 				// links
 				linkHtml = 
 				"<div style='margin-bottom:5px'>" + 
-					"<div style=' float:left;'><img style=' float:left; width:100px; height:100px;' src='{0}' />" + 
+					"<div><img style=' float:left; width:30%; height:100px;' src='{0}' />" + 
 						//"<div style='float:left;display:inline;margin-left:5px'>" + 
 							"<b style='float:left;margin-left:5px;width:65%;'>{1}</b><br/>" + 
 						"</div>" + 
