@@ -101,10 +101,13 @@ $(document).ready(function(){
   	
   	//Choose a word and search again
 	$("cloudDiv").click(function(event){
-		var word = event.target.textContent;
-		var searchContent = $("#inputSearch").val() + " " + word;
-		$("#inputSearch").val(searchContent);
-		$("#popupBasic").popup("open");	
+		if(event.target.tagName == "text"){
+			var word = event.target.textContent;
+			var searchContent = $("#inputSearch").val() + " " + word;
+			$("#inputSearch").val(searchContent);
+			$("#popupBasic").popup("open");	
+		} 
+		
 	});
     
 

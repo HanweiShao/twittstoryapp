@@ -5,12 +5,6 @@ var startTweets = 0;
 
 $(document).ready(function(){
     
-    //Choose a word and search again
-	$("svg g text").click(function(event){
-		var word = event.target.innerHTML();
-		var searchContent = $("#inputSearch").val() + " " + word;		
-	});
-    
     $("#submitSearch").click(function() {
         
         //$("#popupBasic").slideUp();
