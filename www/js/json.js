@@ -91,7 +91,10 @@ function processResult(result) {
         	$("#" + contentDivs[i]).css({
         		"opacity":"1"
         	});
-    }	
+    }
+    
+    //links and videos
+    previewLinks(result);	
 
 }
 

@@ -3,5 +3,5 @@ function regex() {
 }
 
 function isValidUrl(url) {
-	return url.match(VideosPanel.regex()) !== null;
+	return url.match(regex()) !== null;
 }
