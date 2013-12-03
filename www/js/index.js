@@ -33,13 +33,8 @@ $(document).ready(function(){
 		$("#linkDiv").hide();
 		$("#mentionedDiv").hide();
 		$("#tweetDiv").hide();
-		$(this).css({"z-index":"5"});
-	
-		$("#imgvideo1").css({"z-index":"1"});
-		$("#links1").css({"z-index":"1"});
-		$("#mentioned1").css({"z-index":"1"});
-		$("#tweets1").css({"z-index":"1"});
-	//	    $("#left-panel").panel("close");
+		
+	    $("#leftpanel1").panel("close");
     });
     $("#imgvideo1").click(function() {
        $(".activated").removeClass("activated");
@@ -49,12 +44,8 @@ $(document).ready(function(){
 		$("#linkDiv").hide();
 		$("#mentionedDiv").hide();
 		$("#tweetDiv").hide();
-			$("#cloud1").css({"z-index":"1"});
-		$("#imgvideo1").css({"z-index":"5"});
-		$("#links1").css({"z-index":"1"});
-		$("#mentioned1").css({"z-index":"1"});
-		$("#tweets1").css({"z-index":"1"});
-	//	  $("#left-panel").panel("close");
+			
+	  $("#leftpanel1").panel("close");
     });
     $("#tweets1").click(function() {
      			$(".activated").removeClass("activated");
@@ -64,12 +55,8 @@ $(document).ready(function(){
 		$("#linkDiv").hide();
 		$("#mentionedDiv").hide();
 		$("#tweetDiv").show();
-		$("#cloud1").css({"z-index":"1"});
-		$("#imgvideo1").css({"z-index":"1"});
-		$("#links1").css({"z-index":"1"});
-		$("#mentioned1").css({"z-index":"1"});
-		$("#tweets1").css({"z-index":"5"});
-	//	  $("#left-panel").panel("close");
+		
+	        $("#leftpanel1").panel("close");
     });
     $("#links1").click(function() {
     $(".activated").removeClass("activated");
@@ -79,12 +66,8 @@ $(document).ready(function(){
 		$("#linkDiv").show();
 		$("#mentionedDiv").hide();
 		$("#tweetDiv").hide();
-		$("#cloud1").css({"z-index":"1"});
-		$("#imgvideo1").css({"z-index":"1"});
-		$("#links1").css({"z-index":"5"});
-		$("#mentioned1").css({"z-index":"1"});
-		$("#tweets1").css({"z-index":"1"});
-	//	  $("#left-panel").panel("close");
+		
+	        $("#leftpanel1").panel("close");
     });
     $("#mentioned1").click(function() {
         $(".activated").removeClass("activated");
@@ -94,12 +77,8 @@ $(document).ready(function(){
 		$("#linkDiv").hide();
 		$("#mentionedDiv").show();
 		$("#tweetDiv").hide();
-		$("#cloud1").css({"z-index":"1"});
-		$("#imgvideo1").css({"z-index":"1"});
-		$("#links1").css({"z-index":"1"});
-		$("#mentioned1").css({"z-index":"5"});
-		$("#tweets1").css({"z-index":"1"});
-	//	 $("#left-panel").panel("close");
+		
+	       $("#leftpanel1").panel("close");
     });
 
 

@@ -761,6 +761,10 @@ a.ui-link-inherit {
 }
 /* Icons
 -----------------------------------------------------------------------------------------------------------*/
+.ui-icon-bars {
+width: 25px;
+height: 25px;
+}
 .ui-icon,
 .ui-icon-searchfield:after {
 	background: 						#666 /*{global-icon-color}*/;
@@ -818,6 +822,7 @@ a.ui-link-inherit {
 	background-position: 	-252px -1px;
 }
 .ui-icon-gear {
+    
 	background-position: 	-288px -1px;
 }
 .ui-icon-refresh {
