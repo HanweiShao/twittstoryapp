@@ -6,7 +6,8 @@ var contentDivs = [
 	"linkDiv",
 	"imageDiv",
 	"mentionedDiv",
-	"tweetDiv"
+	"tweetDiv",
+	"start"
 ];
 var fadeOutTime = 300;
 var fadInTime = 100;
@@ -14,6 +15,11 @@ var fadInTime = 100;
 $(document).ready(function(){
 	
     AdjustHeight();
+    $("#logo").css({
+    	"width":$(window).width()*0.95,
+    	"position":"relative",
+    	"top":$(window).width()*0.2
+    });
 
     $("#left-button").on("click", function() {
         $("#left-panel").panel("open");

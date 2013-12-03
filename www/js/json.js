@@ -10,12 +10,17 @@ $(document).ready(function(){
         //$("#popupBasic").slideUp();
         
         $("#popupBasic").popup( "close" );
-
+        
+        if($("#start").is(':visible')){// To change from the start screen to results screens
+			$("#start").fadeOut(300, function() {
+            $("#cloudDiv").fadeIn(100);
+         });
+		}		
         for(var i=0; i<5; i++){
         	$("#" + contentDivs[i]).css({
         		"opacity":"0"
         	});
-        }	
+        }	      
         var loading = document.createElement("img");
        	loading.setAttribute("src","img/loading.gif");
        	loading.setAttribute("id","loading");
