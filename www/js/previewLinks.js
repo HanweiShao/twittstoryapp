@@ -30,15 +30,15 @@ function previewLinks(result) {
 			} else {
 				// links
 				linkHtml = 
-				"<div style='margin-bottom:5px'>" + 
-					"<div><img style=' float:left; width:30%; height:100px;' src='{0}' />" + 
+				"<div style='margin-bottom:10px; background-color:white; display:block; border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#BBBBBB '>" + 
+					"<div><img style=' float:left; width:20%; ' src='{0}' />" + 
 						//"<div style='float:left;display:inline;margin-left:5px'>" + 
-							"<b style='float:left;margin-left:5px;width:65%;'>{1}</b><br/>" + 
+							"<b style='float:left;margin-left:5px;width:75%; font-size:13px'>{1}</b><br/>" + 
 						"</div>" + 
-					"<div style='clear:both'>" + 
+					"<div style='clear:both; margin-top:10px'>" + 
 						"{2}" + 
 					"</div>" + 
-					"<hr>" + 
+					"<br>" + 
 				"</div>";
 				
 				linkHtml = String.format( linkHtml,
