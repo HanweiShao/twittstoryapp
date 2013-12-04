@@ -27,6 +27,7 @@ function previewLinks(result) {
 
 			if (isValidUrl(linkInfo.url)) {
 				// video
+				videos(linkInfo.url);
 			} else {
 				// links
 				linkHtml = 
