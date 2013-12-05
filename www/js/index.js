@@ -100,7 +100,7 @@ $(document).ready(function(){
     $("#tweetDiv").on("swiperight", swiperightHandler4);
   	
   	//Choose a word and search again
-	$("cloudDiv").click(function(event){
+	$("#cloudDiv").click(function(event){
 		if(event.target.tagName == "text"){
 			var word = event.target.textContent;
 			var searchContent = $("#inputSearch").val() + " " + word;
@@ -109,7 +109,10 @@ $(document).ready(function(){
 		} 
 		
 	});
-    
+	
+	$("#displayUser").click(function(){
+		$("#userInfo").css("display","block");
+	});
 
 });
 

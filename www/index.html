@@ -28,6 +28,7 @@
 		<script type="text/javascript" src="js/UserPanel.js"></script>
 		<script type="text/javascript" src="js/videos.js"></script>
 		<script type="text/javascript" src="js/previewLinks.js"></script>
+		<script type="text/javascript" src="js/imagePanel.js"></script>
     </head>
     <body>
 
@@ -155,9 +156,9 @@
             	<clouddiv style="font-family: impact"></clouddiv>
 			</div>
             <div data-role="content" id="linkDiv" style="display:none"> </div>
-            <div data-role="content" id="imageDiv" style="display:none "> </div>
-            <div data-role="content" id="mentionedDiv" style="display:none ">
-            	<div id="userDisplay">
+            <div data-role="content" id="imageDiv" style="display:none "> 
+            	<div id="image">
+            		<div id="imageDisplay">
             		<img id="img1" />
             		<img id="img2" />
             		<img id="img3" />
@@ -165,9 +166,24 @@
             		<img id="img5" />
             		<img id="img6" />
             		<img id="img7" />
-            		<img id="img8" />
+            		<img id="img8" />	
+            		</div>          		
             	</div>
-            	<div id="userInfo">
+            	<div id="video"></div>
+            </div>
+            <div data-role="content" id="mentionedDiv" style="display:none ">
+            	<div id="userDisplay">
+            		<img id="user1" />
+            		<img id="user2" />
+            		<img id="user3" />
+            		<img id="user4" />
+            		<img id="user5" />
+            		<img id="user6" />
+            		<img id="user7" />
+            		<img id="user8" />
+            	</div>
+            	<input type="button" value="Display all" id="displayUser"/>
+            	<div id="userInfo" style='display: none'>
             		
             	</div>
             </div>

@@ -4,6 +4,6 @@
     <description>Cordova Application</description>
     <author email="info@com.coolappz" href="http://www.coolappz.com">Hanwei</author>
     <access origin="*"/>
-    <preference name="fullscreen" value="true"/>
+    <preference name="fullscreen" value="false"/>
     <preference name="webviewbounce" value="true"/>
 </widget>

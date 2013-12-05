@@ -2,12 +2,12 @@ var users;
 var userpic;
 var countUsers;
 var users_length;
-var end_user;
+var end_user=8;
 
 function UserPanel(){
 	$("#userInfo").empty();
 	for(var i=1; i<=end_user; i++){
-		var img = $("#img" + i);
+		var img = $("#user" + i);
 		img.attr("src","");
 	}
 	
@@ -25,8 +25,10 @@ function UserPanel(){
 function showUserPanel(){
 	userPanelInit();
 	for(var i=1; i<= end_user; i++){
-		var img = $("#img" + i);
-		img.attr("src",userpic[i-1]);
+		var img = $("#user" + i);
+		img.attr({
+			"src": userpic[i-1]
+		});
 		/*if(users[i].size > 1){
 			var userHtml = 
                 "<div style='margin-bottom:5px; float:left; width:33%; height:150px '>" +
@@ -117,7 +119,7 @@ function userPanelInit(){
 	});
 
 	for(var i=1; i<= end_user; i++){
-		var img = $("#img" + i);
+		var img = $("#user" + i);
 		if(i == 1){
 			img.css({
 				"position":"relative",

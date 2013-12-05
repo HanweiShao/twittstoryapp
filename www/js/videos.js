@@ -27,7 +27,7 @@ function videos(url) {
 	if (fn === undefined) {
 		// nothing
 	}
-	$('#imageDiv').append(videoHtml);
+	$('#video').append(videoHtml);
 }
 
 function youtubeVideo(url) {
