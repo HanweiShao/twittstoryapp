@@ -113,7 +113,14 @@ $(document).ready(function(){
 	$("#displayUser").click(function(){
 		$("#userInfo").css("display","block");
 	});
-
+	
+	$("#hashTags").click(function(event){
+		if(event.target.className == "hashtag"){
+			var hashtag = event.target.innerHTML;
+			$("#inputSearch").val(hashtag);
+			$("#popupBasic").popup("open");	
+		}
+	});
 });
 
 function swipeleftHandler1(event) {

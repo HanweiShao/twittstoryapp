@@ -96,7 +96,8 @@ function processResult(result) {
     
     //links and videos
     previewLinks(result);
-    imagePanel(resultObj.mediaUrls);	
+    imagePanel(resultObj.mediaUrls);
+    hashPanel(resultObj.hashtags);
 
 }
 
