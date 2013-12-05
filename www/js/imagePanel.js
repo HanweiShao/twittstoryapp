@@ -18,16 +18,16 @@ function imgPanelInit(){
 	var content_width = $(window).width()*0.95;
 	header_height = $("footer").height() + $("#bullets").height();
 	var imgDisplay = $("#imageDisplay");
-	imgDisplay.css({
-		"height":1.26*content_width,
-		"position":"relative",
-		"top": 0,
-		"width": "100%",
-		"display":"block"
-	});
+	
 	
 	if(end_img > 4){
-	
+		imgDisplay.css({
+			"height":1.26*content_width,
+			"position":"relative",
+			"top": 0,
+			"width": "100%",
+			"display":"block"
+		});
 		for(var i=1; i<= end_img; i++){
 			var img = $("#img" + i);
 			if(i == 1){
@@ -130,6 +130,13 @@ function imgPanelInit(){
 		}
 	}
 	else{
+		imgDisplay.css({
+			"height":0.7*content_width,
+			"position":"relative",
+			"top": 0,
+			"width": "100%",
+			"display":"block"
+		});
 		for(var i=1; i<= end_img; i++){
 			var img = $("#img" + i);
 			if(i == 1){

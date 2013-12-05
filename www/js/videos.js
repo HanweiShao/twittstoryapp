@@ -1,5 +1,5 @@
-var uniWidth = "240px";
-var uniHeight = "180px";
+var uniWidth = $(window).width()*0.9;
+var uniHeight = $(window).width()*0.9*0.7;
 
 function regex() {
 	return "(http|https):\/\/(www.youtube.com|vimeo.com|vine.co)";
@@ -27,6 +27,7 @@ function videos(url) {
 	if (fn === undefined) {
 		// nothing
 	}
+
 	$('#video').append(videoHtml);
 }
 
@@ -48,7 +49,7 @@ function youtubeVideo(url) {
 	this.renderOn = function() {
 		// <iframe width="420" height="315" src="//www.youtube.com/embed/6ssL1efZ_78"
 		// frameborder="0" allowfullscreen></iframe>
-		youtubeHtml = "<iframe width={0}, heihgt={1} src={2} frameborder={3} allowfullscreen></iframe>";
+		youtubeHtml = "<iframe width='{0}' heihgt='{1}' src='{2}' frameborder='{3}' allowfullscreen></iframe>";
 		youtubeHtml = String.format(youtubeHtml, uniWidth, uniHeight, this.embedUrl(), "0");
 		return youtubeHtml;
 	};
@@ -64,7 +65,7 @@ function vimeoVideo(url) {
 	this.renderOn = function() {
 		// <iframe src="http://player.vimeo.com/video/12422039?color=a8a8a8"
 		// width="500" height="281" frameborder="0"></iframe>
-		vimeoHtml = "<iframe src={0} width={1}, heihgt={2} frameborder={3}></iframe>";
+		vimeoHtml = "<iframe src={0} width={1} heihgt={2} frameborder={3}></iframe>";
 		vimeoHtml = String.format(vimeoHtml, this.embedUrl(), uniWidth, uniHeight, "0");
 		return vimeoHtml;
 	};
@@ -76,7 +77,7 @@ function vineVideo(url) {
 	this.renderOn = function() {
 		// <iframe src="https://vine.co/v/bnrtW52x1uJ/card?mute=1"
 		//  width="500px" height="500px" frameborder="0"></iframe>
-		vineHtml = "<iframe src={0} width={1}, heihgt={2} frameborder={3}></iframe>";
+		vineHtml = "<iframe src={0} width={1} heihgt={2} frameborder={3}></iframe>";
 		vineHtml = String.format(vimeoHtml, this.url + "/card?mute=1", uniWidth, uniHeight, "0");
 		return vineHtml;
 	};
