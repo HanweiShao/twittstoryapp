@@ -3,6 +3,8 @@ var counter = 0;
 var length = 0;
 
 function previewLinks(result) {
+	$("#linkDiv").empty();
+	$("#video").empty();
 	var urls = result.urls;
 	length = urls.length;
 
