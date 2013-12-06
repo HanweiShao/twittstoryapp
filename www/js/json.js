@@ -98,6 +98,7 @@ function processResult(result) {
     previewLinks(result);
     imagePanel(resultObj.mediaUrls);
     hashPanel(resultObj.hashtags);
+    statsPanel(resultObj.snapshot);
 
 }
 
