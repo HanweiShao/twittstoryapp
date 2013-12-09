@@ -77,7 +77,7 @@ $(document).ready(function(){
 
 function processResult(result) {
 
-   	
+   	$("#leftpanelLink").css("display","block");   
    	$("#loading").remove();
    	
     resultObj = result;
