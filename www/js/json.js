@@ -78,8 +78,7 @@ $(document).ready(function(){
 function processResult(result) {
 
    	$("#leftpanelLink").css("display","block");   
-   	$("#loading").remove();
-   	
+   	 	
     resultObj = result;
     wordcloudShow(resultObj.words);
     UserPanel();
@@ -99,6 +98,8 @@ function processResult(result) {
     imagePanel(resultObj.mediaUrls);
     hashPanel(resultObj.hashtags);
     statsPanel(resultObj.snapshot);
+    
+    $("#loading").remove();
 
 }
 
