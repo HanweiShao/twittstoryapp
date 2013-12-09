@@ -40,7 +40,7 @@
         <div data-role="page" id="page">
 
             <!-- search area -->
-            <div data-role="popup" data-theme="b" id="popupBasic">
+            <div data-role="popup" data-theme="b" id="popupBasic" data-overlay-theme="a"  class="ui-content" data-position-to="origin">
                 <form>
                     <dl>          
                         <dt><span lang="en">Search:</span></dt>
@@ -107,7 +107,7 @@
                         <div  >
                             <a href="#LoginPopup" data-rel="popup" data-role="button" data-icon="add" data-inline="true" >Add Account</a>
                             
-                            <div id="LoginPopup" data-role="popup"data-transition="fade" data-overlay-theme="a"  class="ui-content" data-position-to="origin">
+                            <div id="LoginPopup" data-role="popup" data-transition="fade" data-overlay-theme="a"  class="ui-content" data-position-to="origin">
                                 <h5>Adding a Twitter account:</h5>
                                 Twitter Account/Email: <input type="text" id="loginEmail"  />
                                 Password: <input type="password" id="loginPwd" />
