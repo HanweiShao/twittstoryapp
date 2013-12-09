@@ -1,4 +1,9 @@
 function statsPanel(stats){
+	
+	document.getElementById("tweetNum").innerHTML = "<b>Analyzed tweets  </b>";
+	document.getElementById("duration").innerHTML = "<b>Time frame  </b>";
+	document.getElementById("average").innerHTML = "<b>Tweets per second  </b>";
+	
 	var tweetNum = stats.tweetCount;
 	var time = stats.duration;
 	var tweetPerSec = tweetNum / time;
