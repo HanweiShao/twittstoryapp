@@ -20,9 +20,8 @@ $(document).ready(function(){
     	"position":"relative"
     });
     
-    $("#LoginTwitter").on("click",loginTwitter);
-
-    $("#left-button").on("click", function() {
+   $("#leftpanelLink").css("display","none");   
+   $("#left-button").on("click", function() {
         $("#left-panel").panel("open");
     });
 
@@ -181,97 +180,6 @@ function swipeleftHandler1(event) {
         });
     }
 
-	
-    function  loginTwitter() {
-        $("#LoginPopup").popup("open");
-        $.ajax({
-            dataType: "html",
-            url: "http://www.twittstory.com/TwitterSignIn",
-            type: "GET",
-            xhrFields: {
-                withCredentials: true
-            }
-        })
-        .done(function(msg) {                 
-            var link = $("#not-logged-in a", msg).attr("href");
-            $("#loginSubmit").on("click", function() {
-                TwitterLoginPageSubmit(msg);
-            });          
-            AdjustHeight();
-        })
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ", " + error;
-            console.log("Request Failed: " + err);
-        });//end of ajax          
-    }
-    
-    
-var authenticity_token = "";
-var oauth_token = "";
-
-/*
- * input email/password and submit to Twitter
- */
-function TwitterLoginPageSubmit(twitterpage)
-{
-    authenticity_token =  $("input[name='authenticity_token']", twitterpage).val();
-    oauth_token = $("input[name='oauth_token']", twitterpage).val();
-
-    $.ajax({
-        dataType: "html",
-        url: "https://api.twitter.com/oauth/authenticate",
-        type: "POST",
-        data: {
-            authenticity_token: authenticity_token,
-            oauth_token: oauth_token,
-            "session[username_or_email]": $("#loginEmail").val(),
-            "session[password]": $("#loginPwd").val()
-        },
-        xhrFields: {
-            withCredentials: true
-        }
-    })
-    .done(function(html) {
-        TwitterLoginPageSubmitConfirm(html);
-    })
-    .fail(function(jqxhr, textStatus, error) {
-        var err = textStatus + ", " + error;
-        console.log("Request Failed: " + err);
-    });//end of ajax  ;
-
-}
-
-/*
- * confirm login and login into Twitter
- */
-function TwitterLoginPageSubmitConfirm(page)
-{
-    $.ajax({
-        dataType: "html",
-        url: "https://api.twitter.com/oauth/authenticate",
-        type: "POST",
-        data: {
-            authenticity_token: authenticity_token,
-            oauth_token: oauth_token
-        },
-        xhrFields: {
-            withCredentials: true
-        }
-    })
-    .done(function(html) {
-        var twitterid = $("span.name", page).html();
-        $("#inputSearch").val("home:@"+twitterid);
-        $("#LoginPopup").popup("close");
-        $("#rightpanel1").panel("close");
-        $("#popupBasic").popup("open");
-       
-    })
-    .fail(function(jqxhr, textStatus, error) {
-        var err = textStatus + ", " + error;
-        console.log("Request Failed: " + err);
-    });//end of ajax  ;
-    
-}
 
 
 function AdjustHeight()
