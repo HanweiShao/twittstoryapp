@@ -176,20 +176,19 @@ var Contacts = {
 	},
 
 	// get all accounts
-	allAccountResult : new Array(),
-	getAllAccount : function() {
+	getAllAccount : function(callBack){
+		var result = [];
 		Contacts.db.transaction(function(tx) {
-			tx.executeSql('SELECT * FROM contacts ORDER BY username', [], Contacts.returnAllAccount, Contacts.errorHandler);
+			tx.executeSql('SELECT * FROM contacts', [], function(tx, rs) {
+				for (var index = 0; index < rs.rows.length; index++) {
+					result[index] = {
+						username : rs.rows.item(index).username,
+						password : rs.rows.item(index).password
+					};
+				}
+				callBack(result);
+			}, Contacts.errorHandler);
 		});
-		return Contacts.allAccountResult;
-	},
-	returnAllAccount : function(tx, results) {
-		for (var index = 0; index < results.rows.length; index++) {
-			Contacts.allAccountResult[index] = {
-				username : results.rows.item(index).username,
-				password : results.rows.item(index).password
-			};
-		}
 	},
 
 	// delete account
@@ -212,3 +211,4 @@ var Contacts = {
 		}
 	}
 };
+
