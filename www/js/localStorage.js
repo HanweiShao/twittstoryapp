@@ -11,15 +11,15 @@ var Contacts = {
 	$table : document.getElementById("contacts-table"),
 	$form : document.getElementById("contacts-form"),
 	$button_save : document.getElementById("contacts-op-save"),
-	
+
 	successRemoved : false,
-	
+
 	// Default handlers for success or error when running an SQL statement
 	successHandler : function(tx, results) {
 		console.log("success");
 	},
 	errorHandler : function(tx, errorInfo) {
-		alert(eerrorInfo.message);
+		alert(errorInfo.message);
 	},
 	// Methods to create schema using a non-anonymous callback (createTables)
 	createTables : function(tx) {
@@ -65,11 +65,6 @@ var Contacts = {
 	// main
 	init : function() {
 
-		// initialize storage index
-		if (!Contacts.index) {
-			window.localStorage.setItem("Contacts:index", Contacts.index = 1);
-		}
-
 		// Create schema
 		Contacts.createSchema();
 
@@ -81,11 +76,11 @@ var Contacts = {
 				username : this.username.value,
 				password : this.password.value
 			};
-			
+
 			// add
 			Contacts.storeAdd(entry);
 			Contacts.tableAdd(entry);
-			
+
 			// Set form controls to their default value
 			this.reset();
 			this.id_entry.value = 0;
@@ -169,8 +164,7 @@ var Contacts = {
 	tableRemove : function(entry) {
 		Contacts.$table.removeChild(document.getElementById("entry-" + entry.username));
 	},
-	
-	
+
 	//APIs for hanwei--------------------------------------------------------------------------------
 	// insert account
 	insertAccount : function(accName, passWord) {
@@ -178,43 +172,43 @@ var Contacts = {
 			username : accName,
 			password : passWord
 		};
-		storeAdd(entry);
+		Contacts.storeAdd(entry);
 	},
-	
+
 	// get all accounts
 	allAccountResult : new Array(),
 	getAllAccount : function() {
 		Contacts.db.transaction(function(tx) {
 			tx.executeSql('SELECT * FROM contacts ORDER BY username', [], Contacts.returnAllAccount, Contacts.errorHandler);
 		});
-		return allAccountResult;
+		return Contacts.allAccountResult;
 	},
 	returnAllAccount : function(tx, results) {
-		for ( var index = 0; index < results.rows.length; index++) {
-			allAccountResult[index] = {
+		for (var index = 0; index < results.rows.length; index++) {
+			Contacts.allAccountResult[index] = {
 				username : results.rows.item(index).username,
 				password : results.rows.item(index).password
 			};
 		}
 	},
-	
+
 	// delete account
 	deleteAccount : function(accName) {
-		selectAndDelete(accName);
+		Contacts.selectAndDelete(accName);
 		return successRemoved;
 	},
-	
+
 	// return password of a specific account
-	getPwdResult : undefine,
+	getPwdResult : "",
 	getPwdByAccount : function(accName) {
 		Contacts.db.transaction(function(tx) {
 			tx.executeSql("SELECT * FROM contacts WHERE username = ?", [accName], Contacts.returnPwd, Contacts.errorHandler);
 		});
-		return getPwdResult;
+		return Contacts.getPwdResult;
 	},
 	returnPwd : function(tx, results) {
 		if (results.rows.length >= 1) {
-			getPwdResult = results.rows.item(0).password;
+			Contacts.getPwdResult = results.rows.item(0).password;
 		}
 	}
-}; 
+};
