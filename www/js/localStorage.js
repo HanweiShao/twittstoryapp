@@ -171,7 +171,7 @@ var Contacts = {
 	},
 	
 	
-	//APIs for hanwei
+	//APIs for hanwei--------------------------------------------------------------------------------
 	// insert account
 	insertAccount : function(accName, passWord) {
 		var entry = {
