@@ -90,7 +90,7 @@ function processResult(result) {
     $("#tweets").empty();
     RenderTweets();
     
-    $("#tweetDiv").css("height","auto");
+    $("#tweets").css("height","auto");
     for(var i=0; i<5; i++){
         	$("#" + contentDivs[i]).css({
         		"opacity":"1"
