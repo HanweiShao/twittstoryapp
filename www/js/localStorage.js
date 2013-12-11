@@ -33,7 +33,7 @@ var accManagement = {
 
 	init : function() {
 		accManagement.db.transaction(function(tx) {
-			tx.executeSql('CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(100) UNIQUE, password VARCHAR(500))', [], function(tx, rs) {
+			tx.executeSql('CREATE TABLE IF NOT EXISTS accounts (username VARCHAR(100) UNIQUE, password VARCHAR(500), twitterid VARCHAR(50))', [], function(tx, rs) {
 				console.log("database initialize success!");
 			}, function(tx, err) {
 				console.log("database initialize error: " + err.message);
@@ -42,9 +42,9 @@ var accManagement = {
 	},
 
 	// insert account
-	insertAccount : function(accName, passWord, callBack) {
+	insertAccount : function(accName, passWord, twitterid, callBack) {
 		accManagement.db.transaction(function(tx) {
-			tx.executeSql('INSERT INTO accounts (username, password) VALUES (?, ?)', [accName, passWord], function(tx, rs) {
+			tx.executeSql('INSERT INTO accounts (username, password, twitterid) VALUES (?, ?, ?)', [accName, passWord, twitterid], function(tx, rs) {
 				callBack(true);
 			}, function(tx, err) {
 				callBack(false);
@@ -86,7 +86,8 @@ var accManagement = {
 				for (var index = 0; index < rs.rows.length; index++) {
 					result[index] = {
 						username : rs.rows.item(index).username,
-						password : rs.rows.item(index).password
+						password : rs.rows.item(index).password,
+                                                twitterid : rs.rows.item(index).twitterid
 					};
 				}
 				callBack(result);
