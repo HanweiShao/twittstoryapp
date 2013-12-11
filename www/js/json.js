@@ -21,7 +21,8 @@ $(document).ready(function(){
         	$("#" + contentDivs[i]).css({
         		"opacity":"0"
         	});
-        }	      
+        }
+        	      
         var loading = document.createElement("img");
        	loading.setAttribute("src","img/loading.gif");
        	loading.setAttribute("id","loading");
@@ -77,7 +78,8 @@ $(document).ready(function(){
 
 function processResult(result) {
 
-   	$("#leftpanelLink").css("display","block");   
+   	$("#leftpanelLink").css("display","block");
+	
    	 	
     resultObj = result;
     wordcloudShow(resultObj.words);
@@ -85,7 +87,9 @@ function processResult(result) {
     
     //Tweets
     startTweets = 0;
+    $("#tweets").empty();
     RenderTweets();
+    
     $("#tweetDiv").css("height","auto");
     for(var i=0; i<5; i++){
         	$("#" + contentDivs[i]).css({
@@ -108,7 +112,6 @@ function RenderTweets()
     
     var tweetList = resultObj.tweets;
     var end = (startTweets + 10 > tweetList.length) ? tweetList.length : startTweets + 10;
-    $("#tweetDiv").empty();
     
     for (var i = startTweets; i < end; i++)
     {
@@ -134,7 +137,7 @@ function RenderTweets()
                 tweet.retweetCount,
                 urlify(tweet.text));
 
-        $("#tweetDiv").append(tweetHtml);
+        $("#tweets").append(tweetHtml);
         startTweets++;
     }
     
@@ -155,3 +158,29 @@ function urlify(text) {
         return String.format("<a href='{0}'>{0}</a>", url);
     });
 }
+
+/*function initName(){
+	var hCloud = document.createElement("h3");
+	var hLink = document.createElement("h3");
+	var hImg = document.createElement("h3");
+	var hVideo = document.createElement("h3");
+	var hUser = document.createElement("h3");
+	var hHash = document.createElement("h3");
+	var hTweet = document.createElement("h3");
+	
+	hCloud.innerHTML = "Word Cloud";
+	hLink.innerHTML = "Links";
+	hImg.innerHTML = "Images";
+	hVideo.innerHTML = "Videos";
+	hUser.innerHTML = "Metioned Users";
+	hTweet.innerHTML = "Analyzed Tweets";
+	
+	$("#cloudDiv").append(hCloud);
+	$("#linkDiv").append(hLink);
+	$("#image").append(hImg);
+	$("#video").append(hVideo);
+	$("#userDisplay").append(hUser);
+	$("#hashTags").append(hHash);
+	$("#tweetDiv").append(hTweet);
+}
+*/

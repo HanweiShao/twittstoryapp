@@ -3,7 +3,7 @@ var counter = 0;
 var length = 0;
 
 function previewLinks(result) {
-	$("#linkDiv").empty();
+	$("#links").empty();
 	$("#video").empty();
 	var urls = result.urls;
 	length = urls.length;
@@ -50,7 +50,7 @@ function previewLinks(result) {
 	                linkInfo.description //2
                 );
 				
-				$("#linkDiv").append(linkHtml);
+				$("#links").append(linkHtml);
 			}
 
 		}).fail(function(error) {

@@ -154,7 +154,7 @@
 
             <!--five contents-->        
             <div data-role="content" id="cloudDiv" style="display:none">
-			
+				<h3>Word Cloud</h3>
             	<clouddiv style="font-family: impact"></clouddiv>
             	<div id="stats">
             		<p id="tweetNum"></p>
@@ -162,9 +162,13 @@
             		<p id="average"></p>
             	</div>
 			</div>
-            <div data-role="content" id="linkDiv" style="display:none"> </div>
+            <div data-role="content" id="linkDiv" style="display:none">
+				<h3>Links</h3>
+				<div id="links"></div>
+			</div>
             <div data-role="content" id="imageDiv" style="display:none "> 
             	<div id="image">
+            		<h3>Images and Videos</h3>
             		<div id="imageDisplay">
             		<img id="img1" />
             		<img id="img2" />
@@ -179,6 +183,7 @@
             	<div id="video"></div>
             </div>
             <div data-role="content" id="mentionedDiv" style="display:none ">
+            	<h3>Mentioned Users and Hashtags</h3>
             	<div id="userDisplay">
             		<img id="user1" />
             		<img id="user2" />
@@ -195,7 +200,10 @@
             	</div>
             	<div id="hashTags"></div>
             </div>
-            <div data-role="content" id="tweetDiv" style="display:none "> </div>
+            <div data-role="content" id="tweetDiv" style="display:none ">
+            	<h3>Analyzes Tweets</h3>
+            	<div id="tweets"></div>
+			</div>
             <div data-role="content" id="start" style="">
             	<img src="img/twittstory.png" id="logo"/>
                 <center> <div><h3 lang="en">What is happening now on Twitter?</h3><h3 lang="en">Find your story!</h3></div>
