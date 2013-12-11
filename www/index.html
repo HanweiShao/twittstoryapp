@@ -89,8 +89,8 @@
               <div id="options">
 				 
                  <img id="cloud1" src="img/cloud.png" >
-                  <img id="imgvideo1"src="img/Img&vid.png" >
-                    <img id="links1"src="img/links.png" >
+                  <img id="imgvideo1" src="img/Img&vid.png" >
+                    <img id="links1" src="img/links.png" >
                    <img id="mentioned1" src="img/mentionedUser.png" >
                    <img id="tweets1" src="img/tweets.png" >
               </div>
@@ -154,7 +154,7 @@
 
             <!--five contents-->        
             <div data-role="content" id="cloudDiv" style="display:none">
-			
+				<h3>Word Cloud</h3>
             	<clouddiv style="font-family: impact"></clouddiv>
             	<div id="stats">
             		<p id="tweetNum"></p>
@@ -162,9 +162,13 @@
             		<p id="average"></p>
             	</div>
 			</div>
-            <div data-role="content" id="linkDiv" style="display:none"> </div>
+            <div data-role="content" id="linkDiv" style="display:none">
+				<h3>Links</h3>
+				<div id="links"></div>
+			</div>
             <div data-role="content" id="imageDiv" style="display:none "> 
             	<div id="image">
+            		<h3>Pics and Videos</h3>
             		<div id="imageDisplay">
             		<img id="img1" />
             		<img id="img2" />
@@ -179,6 +183,7 @@
             	<div id="video"></div>
             </div>
             <div data-role="content" id="mentionedDiv" style="display:none ">
+            	<h3>Popular Users and Hashtags</h3>
             	<div id="userDisplay">
             		<img id="user1" />
             		<img id="user2" />
@@ -195,13 +200,16 @@
             	</div>
             	<div id="hashTags"></div>
             </div>
-            <div data-role="content" id="tweetDiv" style="display:none "> </div>
+            <div data-role="content" id="tweetDiv" style="display:none ">
+            	<h3>Tweets</h3>
+            	<div id="tweets"></div>
+			</div>
             <div data-role="content" id="start" style="">
             	<img src="img/twittstory.png" id="logo"/>
                 <center> <div><h3 lang="en">What is happening now on Twitter?</h3><h3 lang="en">Find your story!</h3></div>
-                <a data-role="button"  data-inline="true" lang="en">concept</a> <a data-role="button"  data-inline="true" lang="en">"exact phrase"</a>
-                <a data-role="button"  data-inline="true" lang="en">from:@user</a><a data-role="button"  data-inline="true" lang="en">#hashtag</a>
-                <a data-role="button"  data-inline="true" lang="en">mentioning @user</a>
+                <a  href="#popupBasic" data-rel="popup" data-role="button"  data-inline="true" lang="en">concept</a> <a  href="#popupBasic" data-rel="popup" data-role="button"  data-inline="true" lang="en">"exact phrase"</a>
+                <a  href="#popupBasic" data-rel="popup" data-role="button"  data-inline="true" lang="en">from:@user</a><a  href="#popupBasic" data-rel="popup" data-role="button"  data-inline="true" lang="en">#hashtag</a>
+                <a  href="#popupBasic" data-rel="popup" data-role="button"  data-inline="true" lang="en">mentioning @user</a>
                 </center>
             </div>
     </div>				
