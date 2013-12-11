@@ -137,23 +137,24 @@ function  loginTwittStory() {
 /*
  * input email/password and submit to Twitter
  */
+var login="", pwd="";
 function TwitterLoginPageSubmit(twitterpage)
 {
     authenticity_token = $("input[name='authenticity_token']", twitterpage).val();
     oauth_token = $("input[name='oauth_token']", twitterpage).val();
-    var login="", pwd="";
     
-
-    if(!$("#loginEmail").val())
+    
+    if($("#loginEmail").val())
     {  
         login =  $("#loginEmail").val();
         pwd= $("#loginPwd").val();
     }
     else
     {
-        var usingAcc = accManagement.getUsingAccount();
-        login = usingAcc.accountname;
-        pwd = CryptoJS.AES.decrypt(usingAcc.passpord, "user's IMEI");
+        accManagement.getUsingAccount(function(rx){
+            login = rx.username;
+            pwd = CryptoJS.AES.decrypt(rx.password, "user's IMEI");
+        });
     }
     
     
@@ -230,6 +231,7 @@ function TwitterLoginPageSubmitConfirm(page)
                         $("#loginEmail").val(), 
                         CryptoJS.AES.encrypt($("#loginPwd").val(), "user's IMEI"),
                         twitterid,
+                        1,
                         RenderAccountRadio);
 
 
