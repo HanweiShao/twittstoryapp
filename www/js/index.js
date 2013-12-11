@@ -15,6 +15,7 @@ var fadInTime = 100;
 $(document).ready(function(){
 	
     AdjustHeight();
+   
     $("#logo").css({
     	"width":$(window).width()*0.95,
     	"position":"relative"
