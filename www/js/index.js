@@ -121,6 +121,27 @@ $(document).ready(function(){
 			$("#popupBasic").popup("open");	
 		}
 	});
+	
+	$("#concept").click(function(){
+		$("#popupBasic").popup("open");	
+	});
+	$("#from").click(function(){
+		$("#inputSearch").val("from:@");
+		$("#popupBasic").popup("open");	
+	});
+	$("#mentioning").click(function(){
+		$("#inputSearch").val("@");
+		$("#popupBasic").popup("open");	
+	});
+	$("#exact").click(function(){
+		$("#inputSearch").val("\"\"");
+		$("#popupBasic").popup("open");	
+	});
+	$("#hashtag").click(function(){
+		$("#inputSearch").val("#");
+		$("#popupBasic").popup("open");	
+	});
+	
 });
 
 function swipeleftHandler1(event) {
